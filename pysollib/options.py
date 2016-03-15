@@ -479,7 +479,10 @@ class Options:
         for key, t in self.GENERAL_OPTIONS:
             val = getattr(self, key)
             if isinstance(val, str):
-                val = str(val, 'utf-8')
+                try:
+                    val = unicode(val, 'utf-8')
+                except NameError:
+                    pass
             config['general'][key] = val
 
         config['general']['recent_gameid'] = self.recent_gameid

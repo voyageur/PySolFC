@@ -84,7 +84,7 @@ def latin1_to_ascii(n):
     #return n
     n = n.encode('iso8859-1', 'replace')
     ## FIXME: rewrite this for better speed
-    n = (n.replace("\xc4", "Ae")
+    n = (str(n).replace("\xc4", "Ae")
          .replace("\xd6", "Oe")
          .replace("\xdc", "Ue")
          .replace("\xe4", "ae")

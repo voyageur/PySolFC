@@ -621,9 +621,9 @@ class Layout:
             if center and frows + 2 * (1 + waste + 1) <= maxrows:
                 # center the foundations
                 x = XM + (maxrows - frows) * XS / 2
-            for suit in range(suits / foundrows):
+            for suit in range(suits // foundrows):
                 for i in range(decks):
-                    self.s.foundations.append(S(x, y, suit=suit + (row * (suits / 2))))
+                    self.s.foundations.append(S(x, y, suit=suit + (row * (suits // 2))))
                     x += XS
             y += YS
 
@@ -1096,7 +1096,7 @@ class Layout:
         y += YS
         for suit in range(suits / 2):
             for i in range(decks):
-                self.s.foundations.append(S(x, y, suit = suit + suits / 2))
+                self.s.foundations.append(S(x, y, suit = suit + suits // 2))
                 x += XS
 
         # bottom
