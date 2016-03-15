@@ -1001,15 +1001,13 @@ def comp_cardset(ncards):
 # * register a Mahjongg type game
 # ************************************************************************
 
-from new import classobj
-
 def r(id, short_name, name=None, ncards=144, layout=None):
     assert layout
     if not name:
         name = "Mahjongg " + short_name
     classname = re.sub('\W', '', name)
     # create class
-    gameclass = classobj(classname, (AbstractMahjonggGame,), {})
+    gameclass = type(classname, (AbstractMahjonggGame,), {})
     gameclass.L = layout
     gameclass.NCARDS = ncards
     decks, ranks, trumps = comp_cardset(ncards)
