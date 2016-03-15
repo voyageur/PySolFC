@@ -1088,7 +1088,7 @@ Please select a %s type %s.
     def __saveObject(self, obj, fn):
         obj.version_tuple = VERSION_TUPLE
         obj.saved += 1
-        pickle(obj, fn, protocol=-1)
+        pickle(obj, fn, protocol=2)
 
     def saveOptions(self):
         self.opt.save(self.fn.opt_cfg)
