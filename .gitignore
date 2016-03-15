@@ -9,3 +9,4 @@ locale/*
 po/pl.po
 po/ru.po
 *.pyc
+*.swp
