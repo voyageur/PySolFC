@@ -388,7 +388,7 @@ def _createBottomImage(image, color='white', backfile=None):
         a = a*0.9
         w0, h0 = int(w0*a), int(h0*a)
         back = back.resize((w0,h0), Image.ANTIALIAS)
-        x, y = (w1 - w0) / 2, (h1 - h0) / 2
+        x, y = (w1 - w0) // 2, (h1 - h0) // 2
         out.paste(back, (x,y), back)
     return out
 

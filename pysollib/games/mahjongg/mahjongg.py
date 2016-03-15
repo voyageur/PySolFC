@@ -983,11 +983,11 @@ def comp_cardset(ncards):
     assert ncards % 4 == 0
     assert 0 < ncards <= 288 # ???
     decks = 1
-    cards = ncards/4
+    cards = ncards//4
     if ncards > 144:
         assert ncards % 8 == 0
         decks = 2
-        cards = cards/2
+        cards = cards//2
     ranks, trumps = divmod(cards, 3)
     if ranks > 10:
         trumps += (ranks-10)*3

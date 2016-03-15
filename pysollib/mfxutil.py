@@ -27,6 +27,11 @@ import sys, os, time, types, locale
 import webbrowser
 
 try:
+    from types import InstanceType
+except ImportError:
+    InstanceType = object
+
+try:
     from pickle import Pickler, Unpickler, UnpicklingError
 except ImportError:
     from pickle import Pickler, Unpickler, UnpicklingError
@@ -168,7 +173,7 @@ def win32_getprefdir(package):
 def destruct(obj):
     # assist in breaking circular references
     if obj is not None:
-        assert isinstance(obj, types.InstanceType)
+        assert isinstance(obj, InstanceType)
         for k in list(obj.__dict__.keys()):
             obj.__dict__[k] = None
             ##del obj.__dict__[k]
