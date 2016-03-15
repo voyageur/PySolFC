@@ -25,8 +25,9 @@ __all__ = ['HTMLViewer']
 
 # imports
 import os, sys
-import htmllib, formatter
+import formatter
 import tkinter
+from html.parser import HTMLParser
 
 if __name__ == '__main__':
     d = os.path.abspath(os.path.join(sys.path[0], '..', '..'))
@@ -194,10 +195,10 @@ class tkHTMLWriter(formatter.NullWriter):
 # *
 # ************************************************************************
 
-class tkHTMLParser(htmllib.HTMLParser):
+class tkHTMLParser(HTMLParser):
     def anchor_bgn(self, href, name, type):
         self.formatter.flush_softspace()
-        htmllib.HTMLParser.anchor_bgn(self, href, name, type)
+        HTMLParser.anchor_bgn(self, href, name, type)
         self.formatter.writer.anchor_bgn(href, name, type)
 
     def anchor_end(self):

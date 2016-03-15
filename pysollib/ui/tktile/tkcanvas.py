@@ -30,7 +30,7 @@ __all__ = ['MfxCanvasGroup',
 
 # imports
 import tkinter
-import Canvas
+from . import Canvas
 
 # PySol imports
 from pysollib.mfxutil import Image, ImageTk
