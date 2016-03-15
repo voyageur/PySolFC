@@ -46,7 +46,7 @@ def save_callback(*args):
 
     if done: return
     done = True
-    print 'create images'
+    print('create images')
 
     style = drawing_area.get_style()
     draw_rect()
@@ -140,7 +140,7 @@ def save_callback(*args):
     msl = hscroll.style_get_property("min_slider_length")
     msl = 20
     sw = hscroll.style_get_property("slider_width")
-    print '>>', msl, sw
+    print('>>', msl, sw)
     for t, w, h, state, orient in (
         ('hn', msl,sw, gtk.STATE_NORMAL,      gtk.ORIENTATION_HORIZONTAL),
         ('ha', msl,sw, gtk.STATE_PRELIGHT,    gtk.ORIENTATION_HORIZONTAL),
@@ -364,7 +364,7 @@ def save_callback(*args):
 
 
 
-    print 'done'
+    print('done')
 
     gtk.main_quit()
 

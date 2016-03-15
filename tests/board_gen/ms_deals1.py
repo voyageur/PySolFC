@@ -156,7 +156,7 @@ class Board:
         if (self.with_talon):
             self.talon = []
         if (self.with_foundations):
-            self.foundations = map(lambda s:empty_card(),range(4))
+            self.foundations = [empty_card() for s in range(4)]
 
     def reverse_cols(self):
         return self.columns.rev()
@@ -177,7 +177,7 @@ class Board:
                 cells.append(self.foundations[f].found_s())
 
         if len(cells):
-            return "Foundations:" + ("".join(map(lambda s: " "+s, cells)))
+            return "Foundations:" + ("".join([" "+s for s in cells]))
 
     def output(self):
         s = ''
@@ -230,7 +230,7 @@ def createCards(num_decks, print_ts):
     return cards
 
 def column_to_list_of_strings(col):
-    return map( lambda c: c.to_s(), col)
+    return [c.to_s() for c in col]
 
 def column_to_string(col):
     return " ".join(column_to_list_of_strings(col))
@@ -279,7 +279,7 @@ class Game:
 
     def __init__(self, game_id, rand, print_ts):
         mymap = {}
-        for k in self.REVERSE_MAP.keys():
+        for k in list(self.REVERSE_MAP.keys()):
             if self.REVERSE_MAP[k] is None:
                 mymap[k] = k
             else:
@@ -332,7 +332,7 @@ class Game:
     def no_more_cards(self):
         return self.card_idx >= len(self.cards)
 
-    def next(self):
+    def __next__(self):
         if self.no_more_cards():
             raise StopIteration
         c = self.cards[self.card_idx]
@@ -451,18 +451,18 @@ class Game:
 
         while num_cards >= 3:
             for s in range(num_cards):
-                game.add(s, game.next())
+                game.add(s, next(game))
             num_cards = num_cards - 1
 
         for s in range(10):
-            game.add(s, game.next())
+            game.add(s, next(game))
 
     def fan(game):
         game.board = Board(18)
 
         game.cyclical_deal(52-1, 17)
 
-        game.add(17, game.next())
+        game.add(17, next(game))
 
     def _shuffleHookMoveSorter(self, cards, func, ncards):
         # note that we reverse the cards, so that smaller sort_orders
@@ -478,7 +478,7 @@ class Game:
             i = i - 1
         sitems.sort()
         sitems.reverse()
-        scards = map(lambda item: item[2], sitems)
+        scards = [item[2] for item in sitems]
         return cards, scards
 
     def _shuffleHookMoveToBottom(self, cards, func, ncards=999999):
@@ -497,7 +497,7 @@ class Game:
 
         # move Ace to bottom of the Talon (i.e. last cards to be dealt)
         game.cards = game._shuffleHookMoveToBottom(game.cards, lambda c: (c.id == 13, c.suit), 1)
-        game.next()
+        next(game)
         game.cyclical_deal(52-1, 17)
 
         return "Foundations: AS"
@@ -529,7 +529,7 @@ class Game:
 
         for i in range(6):
             for s in range(8):
-                c = game.next()
+                c = next(game)
                 if (game.game_id == "citadel") and game.board.put_into_founds(c):
                     # Already dealt with this card
                     True
@@ -551,7 +551,7 @@ class Game:
 
         for i in range(4):
             for j in range(1,num_cols):
-                game.add(j, game.next())
+                game.add(j, next(game))
 
         game.cyclical_deal(num_cols, num_cols)
 

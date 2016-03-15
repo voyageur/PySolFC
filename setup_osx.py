@@ -26,8 +26,8 @@ call("./scripts/all_games.py > docs/all_games.html", shell=True)
 
 # Use Tile widgets, if they are installed.
 # http://tktable.sourceforge.net/tile/
-import Tkinter
-root = Tkinter.Tk()
+import tkinter
+root = tkinter.Tk()
 root.withdraw()
 try:
     root.tk.call('package', 'require', 'tile', '0.7.8')

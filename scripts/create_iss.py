@@ -11,12 +11,12 @@ for root, dirs, files in os.walk('dist'):
         files_list.append(root)
     dirs_list.append(root)
 
-execfile(os.path.join('pysollib', 'settings.py'))
+exec(compile(open(os.path.join('pysollib', 'settings.py')).read(), os.path.join('pysollib', 'settings.py'), 'exec'))
 prog_version = VERSION
 
 out = open('setup.iss', 'w')
 
-print >> out, '''
+print('''
 [Setup]
 AppName=%(prog_name)s
 AppVerName=%(prog_name)s v.%(prog_version)s
@@ -33,17 +33,17 @@ OutputBaseFilename=PySolFC_%(prog_version)s_setup
 Name: "{group}\\%(prog_name)s"; Filename: "{app}\\pysol.exe"
 Name: "{group}\\Uninstall %(prog_name)s"; Filename: "{uninstallexe}"
 Name: "{userdesktop}\\%(prog_name)s"; Filename: "{app}\\pysol.exe"
-''' % vars()
+''' % vars(), file=out)
 
-print >> out, '[Dirs]'
+print('[Dirs]', file=out)
 for d in dirs_list[1:]:
-    print >> out, 'Name: "{app}%s"' % d.replace('dist', '')
+    print('Name: "{app}%s"' % d.replace('dist', ''), file=out)
 
-print >> out
-print >> out, '[Files]'
-print >> out, 'Source: "*"; DestDir: "{app}"'
+print(file=out)
+print('[Files]', file=out)
+print('Source: "*"; DestDir: "{app}"', file=out)
 for d in files_list[1:]:
     d = d.replace('dist\\', '')
-    print >> out, 'Source: "%s\\*"; DestDir: "{app}\\%s"' % (d, d)
+    print('Source: "%s\\*"; DestDir: "{app}\\%s"' % (d, d), file=out)
 
 

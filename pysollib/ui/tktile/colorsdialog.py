@@ -24,8 +24,8 @@
 __all__ = ['ColorsDialog']
 
 # imports
-import Tkinter
-from tkColorChooser import askcolor
+import tkinter
+from tkinter.colorchooser import askcolor
 
 # PySol imports
 from pysollib.mygettext import _, n_
@@ -49,21 +49,21 @@ class BaseColorsDialog(MfxDialog):
         frame.pack(expand=True, fill='both', padx=5, pady=10)
         frame.columnconfigure(0, weight=1)
 
-        self.text_var = Tkinter.StringVar()
+        self.text_var = tkinter.StringVar()
         self.text_var.set(app.opt.colors['text'])
-        self.piles_var = Tkinter.StringVar()
+        self.piles_var = tkinter.StringVar()
         self.piles_var.set(app.opt.colors['piles'])
-        self.cards_1_var = Tkinter.StringVar()
+        self.cards_1_var = tkinter.StringVar()
         self.cards_1_var.set(app.opt.colors['cards_1'])
-        self.cards_2_var = Tkinter.StringVar()
+        self.cards_2_var = tkinter.StringVar()
         self.cards_2_var.set(app.opt.colors['cards_2'])
-        self.samerank_1_var = Tkinter.StringVar()
+        self.samerank_1_var = tkinter.StringVar()
         self.samerank_1_var.set(app.opt.colors['samerank_1'])
-        self.samerank_2_var = Tkinter.StringVar()
+        self.samerank_2_var = tkinter.StringVar()
         self.samerank_2_var.set(app.opt.colors['samerank_2'])
-        self.hintarrow_var = Tkinter.StringVar()
+        self.hintarrow_var = tkinter.StringVar()
         self.hintarrow_var.set(app.opt.colors['hintarrow'])
-        self.not_matching_var = Tkinter.StringVar()
+        self.not_matching_var = tkinter.StringVar()
         self.not_matching_var.set(app.opt.colors['not_matching'])
         #
         row = 0
@@ -79,7 +79,7 @@ class BaseColorsDialog(MfxDialog):
             ):
             self._calcLabel()(frame, text=title, anchor='w',
                       ).grid(row=row, column=0, sticky='we')
-            l = Tkinter.Label(frame, width=10, height=2,
+            l = tkinter.Label(frame, width=10, height=2,
                               bg=var.get(), textvariable=var)
             l.grid(row=row, column=1, padx=5)
             b = self._calcButton()(frame, text=_('Change...'), width=10,

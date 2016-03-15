@@ -24,7 +24,7 @@
 __all__ = ['ColorsDialog']
 
 # imports
-import ttk
+from . import ttk
 
 from pysollib.ui.tktile.colorsdialog import BaseColorsDialog
 

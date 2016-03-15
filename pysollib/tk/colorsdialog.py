@@ -24,7 +24,7 @@
 __all__ = ['ColorsDialog']
 
 # imports
-import Tkinter
+import tkinter
 
 from pysollib.ui.tktile.colorsdialog import BaseColorsDialog
 
@@ -34,11 +34,11 @@ from pysollib.ui.tktile.colorsdialog import BaseColorsDialog
 
 class ColorsDialog(BaseColorsDialog):
     def _calcFrame(self):
-        return Tkinter.Frame
+        return tkinter.Frame
 
     def _calcLabel(self):
-        return Tkinter.Label
+        return tkinter.Label
 
     def _calcButton(self):
-        return Tkinter.Button
+        return tkinter.Button
 

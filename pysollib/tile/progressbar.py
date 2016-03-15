@@ -24,8 +24,8 @@
 __all__ = ['PysolProgressBar']
 
 # imports
-import Tkinter
-import ttk
+import tkinter
+from . import ttk
 
 # Toolkit imports
 from pysollib.ui.tktile.tkconst import EVENT_HANDLED
@@ -120,7 +120,7 @@ class TestProgressBar:
 
 def progressbar_main(args):
     from pysollib.ui.tktile.tkutil import wm_withdraw
-    tk = Tkinter.Tk()
+    tk = tkinter.Tk()
     wm_withdraw(tk)
     pb = TestProgressBar(tk)
     tk.mainloop()

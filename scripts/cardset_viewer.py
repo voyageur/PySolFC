@@ -5,7 +5,7 @@
 import sys, os
 from glob import glob
 from math import sqrt, sin, cos, pi
-from Tkinter import *
+from tkinter import *
 try:
     from PIL import Image, ImageTk
 except ImportError:

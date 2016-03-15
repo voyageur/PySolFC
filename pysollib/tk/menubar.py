@@ -24,7 +24,7 @@
 __all__ = ['PysolMenubarTk']
 
 # imports
-import Tkinter
+import tkinter
 
 # PySol imports
 from pysollib.mygettext import _, n_
@@ -34,13 +34,13 @@ from pysollib.util import CARDSET
 # toolkit imports
 from pysollib.ui.tktile.tkconst import EVENT_HANDLED, EVENT_PROPAGATE, CURSOR_WATCH, COMPOUNDS
 from pysollib.ui.tktile.tkutil import bind, after_idle
-from tkwidget import MfxMessageDialog
-from selectgame import SelectGameDialog, SelectGameDialogWithPreview
-from soundoptionsdialog import SoundOptionsDialog
-from selectcardset import SelectCardsetDialogWithPreview
-from selecttile import SelectTileDialogWithPreview
-from findcarddialog import connect_game_find_card_dialog, destroy_find_card_dialog
-from solverdialog import connect_game_solver_dialog
+from .tkwidget import MfxMessageDialog
+from .selectgame import SelectGameDialog, SelectGameDialogWithPreview
+from .soundoptionsdialog import SoundOptionsDialog
+from .selectcardset import SelectCardsetDialogWithPreview
+from .selecttile import SelectTileDialogWithPreview
+from .findcarddialog import connect_game_find_card_dialog, destroy_find_card_dialog
+from .solverdialog import connect_game_solver_dialog
 
 from pysollib.ui.tktile.menubar import PysolMenubarTkCommon
 # ************************************************************************
@@ -63,7 +63,7 @@ class PysolMenubarTk(PysolMenubarTkCommon):
         return connect_game_solver_dialog(game)
 
     def _calcWizardDialog(self):
-        from wizarddialog import WizardDialog
+        from .wizarddialog import WizardDialog
         return WizardDialog
 
     def _calcSelectGameDialog(self):

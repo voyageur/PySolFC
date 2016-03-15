@@ -840,7 +840,7 @@ class FreeCellSolver_Hint(Base_Solver_Hint):
         board = self.calcBoardString()
         #
         if DEBUG:
-            print '--------------------\n', board, '--------------------'
+            print('--------------------\n', board, '--------------------')
         #
         args = []
         ##args += ['-sam', '-p', '-opt', '--display-10-as-t']
@@ -869,7 +869,7 @@ class FreeCellSolver_Hint(Base_Solver_Hint):
 
         command = FCS_COMMAND+' '+' '.join([str(i) for i in args])
         if DEBUG:
-            print command
+            print(command)
         kw = {'shell': True,
               'stdin': subprocess.PIPE,
               'stdout': subprocess.PIPE,
@@ -896,7 +896,7 @@ class FreeCellSolver_Hint(Base_Solver_Hint):
 
             for s in pout:
                 if DEBUG >= 5:
-                    print s,
+                    print(s, end=' ')
 
                 if self.colonPrefixMatch('Iteration', s):
                     iter = self._v
@@ -916,7 +916,7 @@ class FreeCellSolver_Hint(Base_Solver_Hint):
         hints = []
         for s in pout:
             if DEBUG:
-                print s,
+                print(s, end=' ')
             if self._determineIfSolverState(s):
                 next
             m = re.match('Total number of states checked is (\d+)\.', s)
@@ -975,7 +975,7 @@ class FreeCellSolver_Hint(Base_Solver_Hint):
 
         #
         if DEBUG:
-            print 'time:', time.time()-start_time
+            print('time:', time.time()-start_time)
         ##print perr.read(),
 
         self.hints = hints
@@ -1020,7 +1020,7 @@ class BlackHoleSolver_Hint(Base_Solver_Hint):
         board = self.calcBoardString()
         #
         if DEBUG:
-            print '--------------------\n', board, '--------------------'
+            print('--------------------\n', board, '--------------------')
         #
         args = []
         ##args += ['-sam', '-p', '-opt', '--display-10-as-t']
@@ -1030,7 +1030,7 @@ class BlackHoleSolver_Hint(Base_Solver_Hint):
 
         command = self.BLACK_HOLE_SOLVER_COMMAND+' '+' '.join([str(i) for i in args])
         if DEBUG:
-            print command
+            print(command)
         kw = {'shell': True,
               'stdin': subprocess.PIPE,
               'stdout': subprocess.PIPE,
@@ -1053,7 +1053,7 @@ class BlackHoleSolver_Hint(Base_Solver_Hint):
 
         for s in pout:
             if DEBUG >= 5:
-                print s,
+                print(s, end=' ')
 
             m = re.search('^(Intractable!|Unsolved!|Solved!)\n', s)
             if m:
@@ -1073,7 +1073,7 @@ class BlackHoleSolver_Hint(Base_Solver_Hint):
         hints = []
         for s in pout:
             if DEBUG:
-                print s,
+                print(s, end=' ')
             m = re.match('Total number of states checked is (\d+)\.', s)
             if m:
                 iter = int(m.group(1))
@@ -1103,7 +1103,7 @@ class BlackHoleSolver_Hint(Base_Solver_Hint):
 
         #
         if DEBUG:
-            print 'time:', time.time()-start_time
+            print('time:', time.time()-start_time)
         ##print perr.read(),
 
         self.hints = hints
