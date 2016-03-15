@@ -44,7 +44,7 @@ from .spider import Spider_SS_Foundation, Spider_RowStack, Spider_Hint
 # ************************************************************************
 
 class Gypsy(Game):
-    Layout_Method = Layout.gypsyLayout
+    Layout_Method = "gypsyLayout"
     Talon_Class = DealRowTalonStack
     Foundation_Class = SS_FoundationStack
     RowStack_Class = AC_RowStack
@@ -54,7 +54,7 @@ class Gypsy(Game):
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=8, waste=0, texts=1)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
         # create stacks
         s.talon = self.Talon_Class(l.s.talon.x, l.s.talon.y, self)
@@ -115,7 +115,7 @@ class Irmgard_Talon(TalonStack):
 class Irmgard(Gypsy):
     GAME_VERSION = 2
 
-    Layout_Method = Layout.harpLayout
+    Layout_Method = "harpLayout"
     Talon_Class = Irmgard_Talon
     RowStack_Class = KingAC_RowStack
 
@@ -355,7 +355,7 @@ class Griffon(Mississippi):
 # ************************************************************************
 
 class Blockade(Gypsy):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     RowStack_Class = SS_RowStack
 
     def createGame(self):
@@ -376,7 +376,7 @@ class Blockade(Gypsy):
 
 
 class PhantomBlockade(Gypsy):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     RowStack_Class = KingAC_RowStack
 
     def createGame(self):
@@ -501,7 +501,7 @@ class Surprise(Gypsy):
 # ************************************************************************
 
 class Elba(Gypsy):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     RowStack_Class = KingAC_RowStack
 
     def createGame(self):
@@ -519,7 +519,7 @@ class Elba(Gypsy):
 # ************************************************************************
 
 class Millie(Gypsy):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
 
     def createGame(self):
         Gypsy.createGame(self, playcards=24)
@@ -536,7 +536,7 @@ class Millie(Gypsy):
 # ************************************************************************
 
 class Hypotenuse(Gypsy):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     RowStack_Class = KingAC_RowStack
 
     def createGame(self):
@@ -704,7 +704,7 @@ class Flamenco(Gypsy):
 # ************************************************************************
 
 class Eclipse(Gypsy):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     RowStack_Class = SS_RowStack
 
     def createGame(self):
@@ -725,7 +725,7 @@ class Eclipse(Gypsy):
 # ************************************************************************
 
 class BrazilianPatience(Gypsy):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     RowStack_Class = KingAC_RowStack
 
     def createGame(self):

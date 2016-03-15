@@ -100,7 +100,7 @@ class SuperMoveSpider_RowStack(SuperMoveStack_StackMethods, Spider_RowStack):
 # ************************************************************************
 
 class RelaxedSpider(Game):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     Talon_Class = DealRowTalonStack
     Foundation_Class = Spider_SS_Foundation
     RowStack_Class = Spider_RowStack
@@ -110,7 +110,7 @@ class RelaxedSpider(Game):
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=10, waste=0, texts=1, playcards=23)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
         # create stacks
         s.talon = self.Talon_Class(l.s.talon.x, l.s.talon.y, self)
@@ -190,7 +190,7 @@ class GroundsForADivorce_Talon(TalonStack):
 
 
 class GroundsForADivorce(RelaxedSpider):
-    Layout_Method = Layout.harpLayout
+    Layout_Method = "harpLayout"
     Talon_Class = GroundsForADivorce_Talon
     Foundation_Class = StackWrapper(Spider_SS_Foundation, base_rank=ANY_RANK, mod=13)
     RowStack_Class = StackWrapper(Spider_RowStack, mod=13)
@@ -212,7 +212,7 @@ class GroundsForADivorce(RelaxedSpider):
 # ************************************************************************
 
 class GrandmothersGame(RelaxedSpider):
-    Layout_Method = Layout.harpLayout
+    Layout_Method = "harpLayout"
 
     def createGame(self):
         RelaxedSpider.createGame(self, playcards=22)
@@ -448,7 +448,7 @@ class RougeEtNoir_RowStack(KingAC_RowStack):
 
 
 class RougeEtNoir(Game):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     Talon_Class = DealRowTalonStack
     RowStack_Class = RougeEtNoir_RowStack
 
@@ -456,7 +456,7 @@ class RougeEtNoir(Game):
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=10, waste=0, texts=1, playcards=23)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
         # create stacks
         s.talon = self.Talon_Class(l.s.talon.x, l.s.talon.y, self)
@@ -708,14 +708,14 @@ class Chelicera(Game):
 
 class ScorpionHead(Scorpion):
 
-    Layout_Method = Layout.freeCellLayout
+    Layout_Method = "freeCellLayout"
 
     def createGame(self, **layout):
 
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=7, reserves=4)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
 
         # create stacks
@@ -987,7 +987,7 @@ class Spidike(RelaxedSpider):
 
     def createGame(self, rows=7, playcards=18):
         l, s = Layout(self), self.s
-        self.Layout_Method(l, rows=rows, waste=0, playcards=playcards)
+        getattr(l,self.Layout_Method)(rows=rows, waste=0, playcards=playcards)
         self.setSize(l.size[0], l.size[1])
         s.talon = self.Talon_Class(l.s.talon.x, l.s.talon.y, self)
         for r in l.s.foundations:

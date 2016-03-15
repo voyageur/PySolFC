@@ -44,7 +44,7 @@ from .spider import Spider_RowStack, Spider_SS_Foundation, Spider_Hint
 # ************************************************************************
 
 class DoubleKlondike(Game):
-    Layout_Method = Layout.harpLayout
+    Layout_Method = "harpLayout"
     Foundation_Class = SS_FoundationStack
     RowStack_Class = KingAC_RowStack
     Hint_Class = KlondikeType_Hint
@@ -53,7 +53,7 @@ class DoubleKlondike(Game):
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=9, waste=1, texts=1, playcards=19)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
         # create stacks
         s.talon = WasteTalonStack(l.s.talon.x, l.s.talon.y, self,
@@ -281,7 +281,7 @@ class DoubleKingsley(DoubleKlondike):
 # ************************************************************************
 
 class ThievesOfEgypt(DoubleKlondike):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
 
     def createGame(self):
         DoubleKlondike.createGame(self, rows=10, max_rounds=2)
@@ -303,7 +303,7 @@ class ThievesOfEgypt(DoubleKlondike):
 # ************************************************************************
 
 class Brush(DoubleKlondike):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     Foundation_Class = Spider_SS_Foundation
     RowStack_Class = Spider_RowStack
     Hint_Class = Spider_Hint

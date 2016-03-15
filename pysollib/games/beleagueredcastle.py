@@ -184,7 +184,7 @@ class ExiledKings(Citadel):
 # ************************************************************************
 
 class Fortress(Game):
-    Layout_Method = Layout.klondikeLayout
+    Layout_Method = "klondikeLayout"
     Talon_Class = InitialDealTalonStack
     Foundation_Class = SS_FoundationStack
     RowStack_Class = UD_SS_RowStack
@@ -198,7 +198,7 @@ class Fortress(Game):
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=10, waste=0, texts=0, playcards=16)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
         # create stacks
         s.talon = self.Talon_Class(l.s.talon.x, l.s.talon.y, self)
@@ -234,7 +234,7 @@ class Fortress(Game):
 # ************************************************************************
 
 class Bastion(Game):
-    Layout_Method = Layout.freeCellLayout
+    Layout_Method = "freeCellLayout"
     Talon_Class = InitialDealTalonStack
     Foundation_Class = SS_FoundationStack
     RowStack_Class = UD_SS_RowStack
@@ -249,7 +249,7 @@ class Bastion(Game):
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=10, reserves=2, texts=0, playcards=16)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
         # create stacks
         s.talon = self.Talon_Class(l.s.talon.x, l.s.talon.y, self)

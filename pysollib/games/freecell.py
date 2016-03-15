@@ -44,7 +44,7 @@ from .spider import Spider_AC_Foundation
 # ************************************************************************
 
 class FreeCell(Game):
-    Layout_Method = Layout.freeCellLayout
+    Layout_Method = "freeCellLayout"
     Talon_Class = InitialDealTalonStack
     Foundation_Class = SS_FoundationStack
     RowStack_Class = SuperMoveAC_RowStack
@@ -61,7 +61,7 @@ class FreeCell(Game):
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=8, reserves=4, texts=0)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
         # create stacks
         s.talon = self.Talon_Class(l.s.talon.x, l.s.talon.y, self)
@@ -317,7 +317,7 @@ class Spidercells(FreeCell):
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=8, reserves=4, texts=0)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
         # create stacks
         s.talon = self.Talon_Class(l.s.talon.x, l.s.talon.y, self)

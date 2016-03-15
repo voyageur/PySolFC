@@ -42,7 +42,7 @@ from pysollib.hint import FreeCellSolverWrapper
 # ************************************************************************
 
 class CastlesInSpain(Game):
-    Layout_Method = Layout.bakersDozenLayout
+    Layout_Method = "bakersDozenLayout"
     Talon_Class = InitialDealTalonStack
     Foundation_Class = SS_FoundationStack
     RowStack_Class = SuperMoveAC_RowStack
@@ -57,7 +57,7 @@ class CastlesInSpain(Game):
         # create layout
         l, s = Layout(self), self.s
         kwdefault(layout, rows=13, playcards=9)
-        self.Layout_Method(l, **layout)
+        getattr(l,self.Layout_Method)(**layout)
         self.setSize(l.size[0], l.size[1])
         # create stacks
         s.talon = self.Talon_Class(l.s.talon.x, l.s.talon.y, self)
