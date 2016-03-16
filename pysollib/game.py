@@ -3068,7 +3068,7 @@ Please report this bug."""))
                 self.quitGame(game.id, loadedgame=game)
 
 
-    def saveGame(self, filename, protocol=-1):
+    def saveGame(self, filename, protocol=2):
         self.finishMove()       # just in case
         self.setCursor(cursor=CURSOR_WATCH)
         try:
@@ -3192,7 +3192,7 @@ in the current implementation.''') % version)
             game.gsaveinfo = self.gsaveinfo
         return game
 
-    def _saveGame(self, filename, protocol=-1):
+    def _saveGame(self, filename, protocol=2):
         f = None
         try:
             if not self.canSaveGame():
