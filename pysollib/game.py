@@ -26,6 +26,7 @@
 import time
 import math
 import traceback
+from sys import version_info
 
 from pysollib.mygettext import _, n_
 
@@ -3111,10 +3112,16 @@ Please report this bug."""))
         def validate(v, txt):
             if not v:
                 raise UnpicklingError(txt)
+        if version_info < (3,):
+            integer_types = (int, long,)
+            string_types = (str, unicode,)
+        else:
+            integer_types = (int,)
+            string_types = (str,)
         #
-        package = pload(str)
+        package = pload(string_types)
         validate(package == PACKAGE, err_txt)
-        version = pload(str)
+        version = pload(string_types)
         #validate(isinstance(version, str) and len(version) <= 20, err_txt)
         version_tuple = pload(tuple)
         validate(version_tuple >= (1,0), _('''\
@@ -3141,7 +3148,7 @@ in the current implementation.''') % version)
         game.version = version
         game.version_tuple = version_tuple
         #
-        initial_seed = pload(int)
+        initial_seed = pload(integer_types)
         if initial_seed <= 32000:
             game.random = LCRandom31(initial_seed)
         else:
@@ -3182,7 +3189,7 @@ in the current implementation.''') % version)
             stats = pload(Struct)
             game.stats.__dict__.update(stats.__dict__)
         game._loadGameHook(p)
-        dummy = pload(str)
+        dummy = pload(string_types)
         validate(dummy == "EOF", err_txt)
         if bookmark == 2:
             # copy back all variables that are not saved

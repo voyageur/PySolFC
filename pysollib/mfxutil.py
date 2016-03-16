@@ -182,7 +182,7 @@ def destruct(obj):
 # *
 # ************************************************************************
 
-class Struct:
+class Struct(object):
     def __init__(self, **kw):
         self.__dict__.update(kw)
 

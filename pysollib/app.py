@@ -67,7 +67,7 @@ from pysollib.help import help_about, destroy_help_html
 # * Statistics
 # ************************************************************************
 
-class _GameStatResult:
+class _GameStatResult(object):
     def __init__(self):
         self.min = 0
         self.max = 0
@@ -110,7 +110,7 @@ class _GameStatResult:
         return position
 
 
-class GameStat:
+class GameStat(object):
     def __init__(self, id):
         self.gameid = id
         #
@@ -173,7 +173,7 @@ class GameStat:
         return time_p, moves_p, total_moves_p, score_p, score_casino_p
 
 
-class Statistics:
+class Statistics(object):
     def __init__(self):
         self.version_tuple = VERSION_TUPLE
         self.saved = 0
@@ -291,7 +291,7 @@ class Statistics:
 # * Comments
 # ************************************************************************
 
-class Comments:
+class Comments(object):
     def __init__(self):
         self.version_tuple = VERSION_TUPLE
         self.saved = 0

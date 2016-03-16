@@ -38,7 +38,7 @@
 ## - save the seed of game.random
 ## - shuffle a stack
 
-class AtomicMove:
+class AtomicMove(object):
 
     def do(self, game):
         self.redo(game)
