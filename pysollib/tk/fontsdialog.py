@@ -24,8 +24,12 @@
 __all__ = ['FontsDialog']
 
 # imports
-import tkinter
-import tkinter.font
+try:
+    import tkinter
+    from tkinter.font import families as tk_font_families
+except ImportError:
+    import Tkinter as tkinter
+    from tkFont import families as tk_font_families
 
 # PySol imports
 from pysollib.mygettext import _, n_
@@ -109,7 +113,7 @@ class FontChooserDialog(MfxDialog):
         self.size_var.set(self.font_size)
         self.weight_var.set(self.font_weight == 'bold')
         self.slant_var.set(self.font_slant == 'italic')
-        font_families = list(tkinter.font.families())
+        font_families = list(tk_font_families())
         font_families.sort()
         selected = -1
         n = 0

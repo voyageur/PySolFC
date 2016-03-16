@@ -26,7 +26,10 @@ __all__ = ['SelectCardsetDialogWithPreview']
 # imports
 import os
 import traceback
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 from . import ttk
 
 # PySol imports

@@ -25,7 +25,11 @@ __all__ = ['PysolStatusbar',
            'HelpStatusbar']
 
 # imports
-import os, sys, tkinter
+import os, sys
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 
 if __name__ == '__main__':
     d = os.path.abspath(os.path.join(sys.path[0], os.pardir, os.pardir))

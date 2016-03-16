@@ -22,7 +22,10 @@
 ##---------------------------------------------------------------------------##
 
 import sys, os
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 
 from pysollib.settings import TOOLKIT, USE_TILE
 if USE_TILE:

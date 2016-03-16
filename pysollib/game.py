@@ -70,7 +70,7 @@ PLAY_TIME_TIMEOUT = 200
 # *   hints/demo
 # ************************************************************************
 
-class Game:
+class Game(object):
     # for self.gstats.updated
     U_PLAY       =  0
     U_WON        = -2
@@ -1057,7 +1057,7 @@ class Game:
                 if v is None:
                     if tb: tb.updateText(player=_("Player\n"))
                     continue
-                if isinstance(v, str):
+                if isinstance(v, str) or isinstance(v, unicode):
                     if tb:
                         #if self.app.opt.toolbar_size:
                         if self.app.toolbar.getSize():

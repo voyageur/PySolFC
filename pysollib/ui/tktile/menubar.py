@@ -3,8 +3,12 @@ import os
 import re
 import sys
 
-import tkinter
-import tkinter.filedialog
+try:
+    import tkinter
+    import tkinter.filedialog as tkFileDialog
+except ImportError:
+    import Tkinter as tkinter
+    import tkFileDialog
 
 from pysollib.mfxutil import Struct, kwdefault
 from pysollib.mfxutil import Image, USE_PIL
@@ -936,7 +940,7 @@ class PysolMenubarTkCommon:
             idir, ifile = "", ""
         if not idir:
             idir = self.app.dn.savegames
-        d = tkinter.filedialog.Open()
+        d = tkFileDialog.Open()
         filename = d.show(filetypes=self.FILETYPES,
                           defaultextension=self.DEFAULTEXTENSION,
                           initialdir=idir, initialfile=ifile)
@@ -971,7 +975,7 @@ Unsupported game for export.
         if not idir:
             idir = self.app.dn.savegames
         ##print self.game.filename, ifile
-        d = tkinter.filedialog.SaveAs()
+        d = tkFileDialog.SaveAs()
         filename = d.show(filetypes=self.FILETYPES,
                           defaultextension=self.DEFAULTEXTENSION,
                           initialdir=idir, initialfile=ifile)
@@ -1001,7 +1005,7 @@ Unsupported game for export.
         if not idir:
             idir = self.app.dn.savegames
         ##print self.game.filename, ifile
-        d = tkinter.filedialog.SaveAs()
+        d = tkFileDialog.SaveAs()
         filename = d.show(filetypes=self.FILETYPES,
                           defaultextension=self.DEFAULTEXTENSION,
                           initialdir=idir, initialfile=ifile)

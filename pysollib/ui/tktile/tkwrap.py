@@ -25,7 +25,10 @@ __all__ = ['TclError',
            'MfxRoot']
 
 # imports
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 TclError = tkinter.TclError
 
 # PySol imports

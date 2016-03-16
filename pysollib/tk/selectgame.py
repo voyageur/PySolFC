@@ -24,8 +24,12 @@
 
 # imports
 import os
-import tkinter
-from collections import UserList
+try:
+    import tkinter
+    from collections import UserList
+except ImportError:
+    import Tkinter as tkinter
+    from UserList import UserList
 
 # PySol imports
 from pysollib.mygettext import _, n_

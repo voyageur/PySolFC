@@ -27,7 +27,10 @@ __all__ = ['HTMLViewer']
 import os, sys, re, types
 import formatter
 import traceback
-from html.parser import HTMLParser
+try:
+    from html.parser import HTMLParser
+except ImportError:
+    from HTMLParser import HTMLParser
 
 from pysollib.mygettext import _, n_
 

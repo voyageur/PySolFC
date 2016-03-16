@@ -25,7 +25,10 @@ __all__ = ['WizardDialog']
 
 
 # imports
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 from .tabpage import TabPageSet
 
 # PySol imports

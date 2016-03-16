@@ -24,7 +24,10 @@
 __all__ = ['TimeoutsDialog']
 
 # imports
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 from . import ttk
 
 # PySol imports

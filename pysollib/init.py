@@ -82,7 +82,10 @@ def init():
         pysollib.settings.USE_TILE = True
         sys.argv.remove('--tile')
     if pysollib.settings.TOOLKIT == 'tk':
-        import tkinter
+        try:
+            import tkinter
+        except ImportError:
+            import Tkinter as tkinter
         root = tkinter.Tk(className=pysollib.settings.TITLE)
         root.withdraw()
         if tkinter.TkVersion < 8.4:

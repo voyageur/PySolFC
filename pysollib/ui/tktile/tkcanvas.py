@@ -29,7 +29,10 @@ __all__ = ['MfxCanvasGroup',
            'MfxCanvas']
 
 # imports
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 from . import Canvas
 
 # PySol imports

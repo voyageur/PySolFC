@@ -24,8 +24,12 @@
 __all__ = ['ColorsDialog']
 
 # imports
-import tkinter
-from tkinter.colorchooser import askcolor
+try:
+    import tkinter
+    from tkinter.colorchooser import askcolor
+except ImportError:
+    import Tkinter as tkinter
+    from tkColorChooser import askcolor
 
 # PySol imports
 from pysollib.mygettext import _, n_

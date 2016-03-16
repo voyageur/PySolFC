@@ -26,8 +26,12 @@ __all__ = ['HTMLViewer']
 # imports
 import os, sys
 import formatter
-import tkinter
-from html.parser import HTMLParser
+try:
+    import tkinter
+    from html.parser import HTMLParser
+except ImportError:
+    import Tkinter as tkinter
+    from HTMLParser import HTMLParser
 
 if __name__ == '__main__':
     d = os.path.abspath(os.path.join(sys.path[0], '..', '..'))

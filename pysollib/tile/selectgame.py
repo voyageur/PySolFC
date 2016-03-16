@@ -25,7 +25,10 @@
 # imports
 import os
 from . import ttk
-from collections import UserList
+try:
+    from collections import UserList
+except ImportError:
+    from UserList import UserList
 
 # PySol imports
 from pysollib.mygettext import _, n_

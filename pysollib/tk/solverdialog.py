@@ -30,7 +30,10 @@ __all__ = [
     ]
 
 # imports
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 ##import traceback
 
 # PySol imports

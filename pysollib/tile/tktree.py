@@ -23,7 +23,10 @@
 
 # imports
 import os
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 
 # Toolkit imports
 from pysollib.ui.tktile.tkutil import bind

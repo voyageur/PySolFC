@@ -24,7 +24,10 @@
 __all__ = ['ColorsDialog']
 
 # imports
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 
 from pysollib.ui.tktile.colorsdialog import BaseColorsDialog
 

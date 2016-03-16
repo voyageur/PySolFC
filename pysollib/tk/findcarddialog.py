@@ -28,7 +28,10 @@ __all__ = ['create_find_card_dialog',
 
 # imports
 import os
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 ##import traceback
 
 # PySol imports

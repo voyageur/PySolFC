@@ -1,10 +1,14 @@
-# TODO: license check
+# TODO: license check (PSF code here) or use Tkinter.Canvas directly
 # This module exports classes for the various canvas item types
 
 # NOTE: This module was an experiment and is now obsolete.
 # It's best to use the Tkinter.Canvas class directly.
 
-from tkinter import Canvas, _cnfmerge, _flatten
+try:
+    from tkinter import _cnfmerge, _flatten
+except ImportError:
+    from Tkinter import _cnfmerge, _flatten
+
 
 
 class CanvasItem:

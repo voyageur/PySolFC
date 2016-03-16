@@ -27,10 +27,9 @@ import os
 import traceback
 
 try:
-    import _thread
     from threading import Thread
 except ImportError:
-    thread = None
+    Thread = None
 
 try:
     import pysolsoundserver

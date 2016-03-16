@@ -3003,7 +3003,10 @@ class ArbitraryStack(OpenStack):
 # self.cap override any call-time cap
 class StackWrapper:
     def __init__(self, stack_class, **cap):
-        assert isinstance(stack_class, type)
+        try:
+            assert isinstance(stack_class, type)
+        except AssertionError:
+            assert isinstance(stack_class, types.ClassType)
         assert issubclass(stack_class, Stack)
         self.stack_class = stack_class
         self.cap = cap

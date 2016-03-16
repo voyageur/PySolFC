@@ -47,8 +47,12 @@ __all__ = ['wm_withdraw',
 
 # imports
 import re
-import tkinter
-from tkinter.font import Font
+try:
+    import tkinter
+    from tkinter.font import Font
+except ImportError:
+    import Tkinter as tkinter
+    from tkFont import Font
 
 # PySol imports
 from pysollib.mfxutil import Image, ImageTk, ImageOps

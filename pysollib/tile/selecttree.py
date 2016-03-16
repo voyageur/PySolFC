@@ -24,7 +24,10 @@
 __all__ = ['SelectDialogTreeData']
 
 # imports
-import tkinter.font
+try:
+    from tkinter.font import Font
+except ImportError:
+    from tkFont import Font
 
 # Toolkit imports
 from .tktree import MfxTreeLeaf, MfxTreeNode, MfxTreeInCanvas
@@ -110,7 +113,7 @@ class SelectDialogTreeCanvas(MfxTreeInCanvas):
         self.style.height = 14    # height of symbol
         if font:
             self.style.font = font
-            f = tkinter.font.Font(parent, font)
+            f = Font(parent, font)
             h = f.metrics()["linespace"]
             self.style.disty = max(self.style.width, h)
 

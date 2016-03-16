@@ -5,7 +5,11 @@
 import sys, os
 from glob import glob
 from math import sqrt, sin, cos, pi
-from tkinter import *
+try:
+    pass
+    from tkinter import *
+except ImportError:
+    from Tkinter import *
 try:
     from PIL import Image, ImageTk
 except ImportError:
@@ -85,7 +89,7 @@ def show_cardset(*args):
                 ##filter = Image.BILINEAR
                 ##filter = Image.BICUBIC
                 ##filter = Image.ANTIALIAS
-                ##print f
+                ##print(f)
                 im = Image.open(f)
                 if zoom != 0:
                     w, h = im.size

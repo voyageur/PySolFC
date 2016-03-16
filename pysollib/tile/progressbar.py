@@ -24,7 +24,10 @@
 __all__ = ['PysolProgressBar']
 
 # imports
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 from . import ttk
 
 # Toolkit imports

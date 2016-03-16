@@ -25,7 +25,10 @@ __all__ = ['PysolToolbarTk']
 
 # imports
 import os
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 
 # PySol imports
 from pysollib.mygettext import _, n_

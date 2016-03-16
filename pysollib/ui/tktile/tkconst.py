@@ -39,7 +39,10 @@ __all__ = ['EVENT_HANDLED',
            ]
 
 # imports
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 
 from pysollib.mygettext import _, n_
 

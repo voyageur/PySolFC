@@ -33,9 +33,13 @@ __all__ = ['SingleGame_StatsDialog',
 # imports
 import os
 import time
-import tkinter
+try:
+    import tkinter
+    from tkinter.font import Font
+except ImportError:
+    import Tkinter as tkinter
+    from tkFont import Font
 from . import ttk
-import tkinter.font
 
 # PySol imports
 from pysollib.mygettext import _, n_
@@ -64,11 +68,11 @@ class StatsDialog(MfxDialog):
         MfxDialog.__init__(self, parent, title, kw.resizable, kw.default)
 
         self.font = app.getFont('default')
-        self.tkfont = tkinter.font.Font(parent, self.font)
+        self.tkfont = Font(parent, self.font)
         self.font_metrics = self.tkfont.metrics()
         style = ttk.Style(parent)
         heading_font = style.lookup('Heading', 'font') # treeview heading
-        self.heading_tkfont = tkinter.font.Font(parent, heading_font)
+        self.heading_tkfont = Font(parent, heading_font)
 
         self.selected_game = None
 
@@ -507,10 +511,10 @@ class LogDialog(MfxDialog):
     def __init__(self, parent, title, app, player, **kw):
 
         self.font = app.getFont('default')
-        self.tkfont = tkinter.font.Font(parent, self.font)
+        self.tkfont = Font(parent, self.font)
         style = ttk.Style(parent)
         heading_font = style.lookup('Heading', 'font') # treeview heading
-        self.heading_tkfont = tkinter.font.Font(parent, heading_font)
+        self.heading_tkfont = Font(parent, heading_font)
         self.font_metrics = self.tkfont.metrics()
 
         self.CHAR_H = self.font_metrics['linespace']

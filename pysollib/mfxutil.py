@@ -23,6 +23,7 @@
 
 
 # imports
+from __future__ import print_function
 import sys, os, time, types, locale
 import webbrowser
 
@@ -32,14 +33,9 @@ except ImportError:
     InstanceType = object
 
 try:
-    from pickle import Pickler, Unpickler, UnpicklingError
+    from cPickle import Pickler, Unpickler, UnpicklingError
 except ImportError:
     from pickle import Pickler, Unpickler, UnpicklingError
-
-try:
-    import _thread
-except:
-    thread = None
 
 from pysollib.settings import PACKAGE, TOOLKIT, USE_TILE
 
@@ -173,7 +169,10 @@ def win32_getprefdir(package):
 def destruct(obj):
     # assist in breaking circular references
     if obj is not None:
-        assert isinstance(obj, InstanceType)
+        try:
+            assert isinstance(obj, InstanceType)
+        except AssertionError:
+            pass
         for k in list(obj.__dict__.keys()):
             obj.__dict__[k] = None
             ##del obj.__dict__[k]

@@ -23,8 +23,10 @@
 
 import sys, os, traceback
 
-import tkinter
-import tkinter.font
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 
 from pysollib.settings import TITLE
 from pysollib.settings import TOOLKIT, USE_TILE
@@ -71,10 +73,13 @@ def init_root_window(root, app):
             except:
                 traceback.print_exc()
             else:
-                import tkinter.filedialog
-                tkinter.filedialog.Open.command = 'ttk::getOpenFile'
-                tkinter.filedialog.SaveAs.command = 'ttk::getSaveFile'
-                tkinter.filedialog.Directory.command = 'ttk::chooseDirectory'
+                try:
+                    import tkinter.filedialog as tkFileDialog
+                except ImportError:
+                    import tkFileDialog
+                tkFileDialog.Open.command = 'ttk::getOpenFile'
+                tkFileDialog.SaveAs.command = 'ttk::getSaveFile'
+                tkFileDialog.Directory.command = 'ttk::chooseDirectory'
 
         style = ttk.Style(root)
         color = style.lookup('.', 'background')

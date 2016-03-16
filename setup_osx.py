@@ -26,7 +26,10 @@ call("./scripts/all_games.py > docs/all_games.html", shell=True)
 
 # Use Tile widgets, if they are installed.
 # http://tktable.sourceforge.net/tile/
-import tkinter
+try:
+    import tkinter
+except ImportError:
+    import Tkinter as tkinter
 root = tkinter.Tk()
 root.withdraw()
 try:
@@ -38,7 +41,7 @@ else:
     TCL_EXTENSION_PATH = "/Library/Tcl"
 finally:
     root.destroy()
-    del root, Tkinter
+    del root, tkinter
 
 # Use Freecell Solver, if it is installed.
 # http://fc-solve.berlios.de/

@@ -33,8 +33,12 @@ __all__ = ['MfxDialog',
 
 # imports
 import time
-import tkinter
-import tkinter.font
+try:
+    import tkinter
+    from tkinter.font import Font
+except ImportError:
+    import Tkinter as tkinter
+    from tkFont import Font
 import traceback
 
 # PySol imports
@@ -305,7 +309,7 @@ class PysolAboutDialog(MfxMessageDialog):
                             width=kw.width)
         msg.pack(fill='both', expand=True)
 
-        font = tkinter.font.Font(parent, app.getFont('default'))
+        font = Font(parent, app.getFont('default'))
         font.configure(underline=True)
         url_label = tkinter.Label(frame, text=kw.url, font=font,
                                   foreground='blue', cursor='hand2')

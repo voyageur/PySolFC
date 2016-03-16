@@ -24,7 +24,10 @@
 a couple of classes for implementing partial tabbed-page like behaviour
 """
 
-from tkinter import *
+try:
+    from tkinter import *
+except ImportError:
+    from Tkinter import *
 
 MYRIDGE, MYRAISED = RAISED, RIDGE
 #MYRIDGE, MYRAISED = RIDGE, RAISED

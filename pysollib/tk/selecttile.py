@@ -23,7 +23,12 @@
 
 
 # imports
-import tkinter, tkinter.colorchooser
+try:
+    import tkinter
+    from tkinter.colorchooser import askcolor
+except ImportError:
+    import Tkinter as tkinter
+    from tkColorChooser import askcolor
 
 # PySol imports
 from pysollib.mygettext import _, n_
@@ -164,7 +169,7 @@ class SelectTileDialogWithPreview(MfxDialog):
             self.tree.n_expansions = 1  # save xyview in any case
         if button == 1:        # "Solid color..."
             try:
-                c = tkinter.colorchooser.askcolor(master=self.top,
+                c = askcolor(master=self.top,
                                             initialcolor=self.table_color,
                                             title=_("Select table color"))
             except tkinter.TclError:
