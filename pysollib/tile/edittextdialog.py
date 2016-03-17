@@ -28,7 +28,10 @@ try:
     import tkinter
 except ImportError:
     import Tkinter as tkinter
-from . import ttk
+try:
+    import tkinter.ttk
+except ImportError:
+    import ttk
 
 # PySol imports
 from pysollib.mfxutil import KwStruct

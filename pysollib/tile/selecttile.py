@@ -29,7 +29,10 @@ try:
 except ImportError:
     import Tkinter as tkinter
     from tkColorChooser import askcolor
-from . import ttk
+try:
+    import tkinter.ttk
+except ImportError:
+    import ttk
 
 # PySol imports
 from pysollib.mygettext import _, n_

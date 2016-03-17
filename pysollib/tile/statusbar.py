@@ -30,7 +30,10 @@ try:
     import tkinter
 except ImportError:
     import Tkinter as tkinter
-from . import ttk
+try:
+    import tkinter.ttk
+except ImportError:
+    import ttk
 
 from pysollib.mygettext import _, n_
 if __name__ == '__main__':

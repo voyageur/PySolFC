@@ -24,7 +24,10 @@
 
 # imports
 import os
-from . import ttk
+try:
+    import tkinter.ttk
+except ImportError:
+    import ttk
 try:
     from collections import UserList
 except ImportError:

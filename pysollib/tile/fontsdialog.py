@@ -30,7 +30,10 @@ try:
 except ImportError:
     import Tkinter as tkinter
     from tkFont import families as tk_font_families
-from . import ttk
+try:
+    import tkinter.ttk
+except ImportError:
+    import ttk
 
 # PySol imports
 from pysollib.mfxutil import KwStruct

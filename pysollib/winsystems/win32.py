@@ -25,7 +25,10 @@ import sys, os
 
 from pysollib.settings import TOOLKIT, USE_TILE
 if USE_TILE:
-    from pysollib.tile import ttk
+    try:
+        import tkinter.ttk
+    except ImportError:
+        import ttk
 
 from .common import base_init_root_window, BaseTkSettings
 

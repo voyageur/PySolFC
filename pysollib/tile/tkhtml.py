@@ -32,7 +32,10 @@ try:
 except ImportError:
     import Tkinter as tkinter
     from HTMLParser import HTMLParser
-from . import ttk
+try:
+    import tkinter.ttk
+except ImportError:
+    import ttk
 
 if __name__ == '__main__':
     d = os.path.abspath(os.path.join(sys.path[0], '..', '..'))

@@ -28,7 +28,10 @@ try:
     import tkinter
 except ImportError:
     import Tkinter as tkinter
-from . import ttk
+try:
+    import tkinter.ttk
+except ImportError:
+    import ttk
 
 # Toolkit imports
 from pysollib.ui.tktile.tkconst import EVENT_HANDLED

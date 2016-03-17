@@ -30,7 +30,10 @@ from pysollib.settings import TOOLKIT, USE_TILE
 from pysollib.settings import DEBUG
 from pysollib.mfxutil import print_err
 if USE_TILE:
-    from pysollib.tile import ttk
+    try:
+        import tkinter.ttk
+    except ImportError:
+        import ttk
 
 
 def init_tile(app, top):

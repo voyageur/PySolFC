@@ -39,7 +39,10 @@ try:
 except ImportError:
     import Tkinter as tkinter
     from tkFont import Font
-from . import ttk
+try:
+    import tkinter.ttk
+except ImportError:
+    import ttk
 import traceback
 
 # PySol imports

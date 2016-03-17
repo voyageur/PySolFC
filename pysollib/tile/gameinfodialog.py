@@ -25,7 +25,10 @@
 __all__ = ['GameInfoDialog']
 
 # imports
-from . import ttk
+try:
+    import tkinter.ttk
+except ImportError:
+    import ttk
 
 # PySol imports
 from pysollib.mygettext import _, n_
