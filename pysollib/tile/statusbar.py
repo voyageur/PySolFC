@@ -48,7 +48,7 @@ from .tkwidget import MfxTooltip
 # *
 # ************************************************************************
 
-class MfxStatusbar:
+class MfxStatusbar(object):
     def __init__(self, top, row, column, columnspan):
         self.top = top
         self._show = True

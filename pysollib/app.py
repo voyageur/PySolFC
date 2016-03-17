@@ -318,7 +318,7 @@ class Comments(object):
 # * Also handles all global resources.
 # ************************************************************************
 
-class Application:
+class Application(object):
     def __init__(self):
         self.gdb = GAME_DB
         self.opt = Options()

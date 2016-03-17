@@ -72,7 +72,7 @@ from pysollib.pysolrandom import constructRandom, LCRandom31
 # // We use a seed of type long in the range [0, MAX_SEED].
 # ************************************************************************/
 
-class Card:
+class Card(object):
 
     ACE = 1
     KING = 13
@@ -122,7 +122,7 @@ class Card:
     def is_empty(self):
         return self.empty
 
-class Columns:
+class Columns(object):
 
     def __init__(self, num):
         self.num = num
@@ -144,7 +144,7 @@ class Columns:
             s += column_to_string(column) + "\n"
         return s
 
-class Board:
+class Board(object):
     def __init__(self, num_columns, with_freecells=False,
             with_talon=False, with_foundations=False):
         self.with_freecells = with_freecells
@@ -255,7 +255,7 @@ def shuffle(orig_cards, rand):
     rand.shuffle(shuffled_cards)
     return shuffled_cards
 
-class Game:
+class Game(object):
     REVERSE_MAP = \
         {
                 "freecell":

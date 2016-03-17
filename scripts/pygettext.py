@@ -355,7 +355,7 @@ def getFilesForName(name):
     return []
 
 
-class TokenEater:
+class TokenEater(object):
     def __init__(self, options):
         self.__options = options
         self.__messages = {}

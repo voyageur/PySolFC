@@ -38,7 +38,7 @@ from .tkwidget import MfxDialog
 # *
 # ************************************************************************
 
-class SoundOptionsDialog:
+class SoundOptionsDialog(object):
     def __init__(self, parent, title, app, **kw):
         saved_opt = app.opt.copy()
 

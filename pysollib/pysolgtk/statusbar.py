@@ -34,7 +34,7 @@ from pysollib.mygettext import _, n_
 # *
 # ************************************************************************
 
-class BasicStatusbar:
+class BasicStatusbar(object):
     def __init__(self, top, row, column, columnspan):
         self.top = top
         self._widgets = []

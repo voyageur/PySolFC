@@ -35,7 +35,7 @@ from pysollib.mygettext import _, n_
 # *
 # ************************************************************************
 
-class WizSetting:
+class WizSetting(object):
     def __init__(self, values_map, default, var_name,
                  label, widget='menu'):
         self.values_map = values_map

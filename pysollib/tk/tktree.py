@@ -37,7 +37,7 @@ from .tkwidget import MfxScrolledCanvas
 # *
 # ************************************************************************
 
-class MfxTreeBaseNode:
+class MfxTreeBaseNode(object):
     def __init__(self, tree, parent_node, text, key):
         self.tree = tree
         self.parent_node = parent_node

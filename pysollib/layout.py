@@ -52,7 +52,7 @@ class _LayoutStack:
             self.text_format = format
 
 
-class Layout:
+class Layout(object):
     def __init__(self, game, card_x_space=None, card_y_space=None, **kw):
         self.game = game
         self.canvas = self.game.canvas

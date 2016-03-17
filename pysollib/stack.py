@@ -207,7 +207,7 @@ def getPileFromStacks(stacks, reverse=0):
 # *
 # ************************************************************************
 
-class Stack:
+class Stack(object):
     # A generic stack of cards.
     #
     # This is used as a base class for all other stacks (e.g. the talon,
@@ -3001,7 +3001,7 @@ class ArbitraryStack(OpenStack):
 # ************************************************************************
 
 # self.cap override any call-time cap
-class StackWrapper:
+class StackWrapper(object):
     def __init__(self, stack_class, **cap):
         try:
             assert isinstance(stack_class, type)

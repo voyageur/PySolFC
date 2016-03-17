@@ -38,7 +38,7 @@ from .tkutil import create_pango_font_desc
 # *
 # ************************************************************************
 
-class FontsDialog:
+class FontsDialog(object):
 
     def __init__(self, parent, title, app, **kw):
         glade_file = app.dataloader.findFile('pysolfc.glade')

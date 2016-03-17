@@ -40,7 +40,7 @@ from .tkutil import makeToplevel, loadImage
 # *
 # ************************************************************************
 
-class TclError:
+class TclError(object):
     pass
 
 def make_help_toplevel(parent, title=None, class_=None):

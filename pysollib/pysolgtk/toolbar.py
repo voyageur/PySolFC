@@ -35,7 +35,7 @@ from gtk import gdk
 # *
 # ************************************************************************
 
-class PysolToolbarTk:
+class PysolToolbarTk(object):
     def __init__(self, top, menubar, dir, size=0, relief=0, compound=None):
         self.top = top
         self.menubar = menubar

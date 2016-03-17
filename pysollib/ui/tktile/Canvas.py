@@ -11,7 +11,7 @@ except ImportError:
 
 
 
-class CanvasItem:
+class CanvasItem(object):
     def __init__(self, canvas, itemType, *args, **kw):
         self.canvas = canvas
         self.id = canvas._create(itemType, args, kw)
@@ -124,7 +124,7 @@ class Window(CanvasItem):
     def __init__(self, canvas, *args, **kw):
         CanvasItem.__init__(self, canvas, 'window', *args, **kw)
 
-class Group:
+class Group(object):
     def __init__(self, canvas, tag=None):
         if not tag:
             tag = 'Group%d' % id(self)

@@ -122,7 +122,7 @@ class MfxMenu(MfxMenubar):
             master.add_cascade(menu=self, name=name, label=label, underline=underline)
 
 
-class PysolMenubarTkCommon:
+class PysolMenubarTkCommon(object):
     def __init__(self, app, top, progress=None):
         self._createTkOpt()
         self._setOptions()

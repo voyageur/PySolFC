@@ -234,7 +234,7 @@ def kwdefault(kw, **defaults):
             kw[k] = v
 
 
-class KwStruct:
+class KwStruct(object):
     def __init__(self, kw={}, **defaults):
         if isinstance(kw, KwStruct):
             kw = kw.__dict__

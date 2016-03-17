@@ -35,7 +35,7 @@ from pysollib.mygettext import _, n_
 # *
 # ************************************************************************
 
-class PysolStatsFormatter:
+class PysolStatsFormatter(object):
 
     def getStatHeader(self):
         return (_("Game"),
@@ -241,7 +241,7 @@ class FileStatsFormatter(PysolStatsFormatter):
 # *
 # ************************************************************************
 
-class ProgressionFormatter:
+class ProgressionFormatter(object):
 
     def __init__(self, app, player, gameid):
 

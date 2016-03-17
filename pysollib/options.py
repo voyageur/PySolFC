@@ -177,7 +177,7 @@ preserve_aspect_ratio = boolean
 '''.splitlines()
 
 
-class Options:
+class Options(object):
     GENERAL_OPTIONS = [
         ('player', 'str'),
         ('confirm', 'bool'),

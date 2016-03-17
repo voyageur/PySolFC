@@ -35,7 +35,7 @@ from pysollib.mfxutil import SubclassResponsibility
 # * We use a seed of type long in the range [0, MAX_SEED].
 # ************************************************************************
 
-class BasicRandom:
+class BasicRandom(object):
     #MAX_SEED = 0L
     #MAX_SEED = 0xffffffffffffffffL  # 64 bits
     MAX_SEED = 100000000000000000000 # 20 digits

@@ -37,7 +37,7 @@ from pysollib.mygettext import _, n_
 # ************************************************************************
 
 # GameInfo constants
-class GI:
+class GI(object):
     # game category - these *must* match the cardset CSI.TYPE_xxx
     GC_FRENCH        = CSI.TYPE_FRENCH
     GC_HANAFUDA      = CSI.TYPE_HANAFUDA
@@ -489,7 +489,7 @@ class GameInfo(Struct):
                         si=gi_si, rules_filename=rules_filename)
 
 
-class GameManager:
+class GameManager(object):
     def __init__(self):
         self.__selected_key = -1
         self.__games = {}

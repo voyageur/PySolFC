@@ -58,7 +58,7 @@ from pysollib.ui.tktile.tkcanvas import MfxCanvas
 # * abstract base class for the dialogs in this module
 # ************************************************************************
 
-class MfxDialog: # ex. _ToplevelDialog
+class MfxDialog(object): # ex. _ToplevelDialog
     img = {}
     button_img = {}
 
@@ -374,7 +374,7 @@ class MfxSimpleEntry(MfxDialog):
 # * a simple tooltip
 # ************************************************************************
 
-class MfxTooltip:
+class MfxTooltip(object):
     last_leave_time = 0
 
     def __init__(self, widget):
@@ -466,7 +466,7 @@ class MfxTooltip:
 # * A canvas widget with scrollbars and some useful bindings.
 # ************************************************************************
 
-class MfxScrolledCanvas:
+class MfxScrolledCanvas(object):
     def __init__(self, parent, hbar=True, vbar=True, propagate=0, **kw):
         kwdefault(kw, highlightthickness=0, bd=1, relief='sunken')
         self.parent = parent
@@ -662,7 +662,7 @@ class MfxScrolledCanvas:
 # *
 # ************************************************************************
 
-class StackDesc:
+class StackDesc(object):
 
     def __init__(self, game, stack):
         self.game = game
@@ -709,7 +709,7 @@ class StackDesc:
 # * ttk.Scale workaround (label and resolution)
 # ************************************************************************
 
-class MyPysolScale:
+class MyPysolScale(object):
     def __init__(self, parent, **kw):
         if 'resolution' in kw:
             self.resolution = kw['resolution']

@@ -50,7 +50,7 @@ from pysollib.ui.tktile.tkutil import loadImage
 # *
 # ************************************************************************
 
-class AbstractToolbarButton:
+class AbstractToolbarButton(object):
     def __init__(self, parent, toolbar, toolbar_name, position):
         self.toolbar = toolbar
         self.toolbar_name = toolbar_name
@@ -157,7 +157,7 @@ class ToolbarLabel(tkinter.Message):
 # * Note: Applications should call show/hide after constructor.
 # ************************************************************************
 
-class PysolToolbarTk:
+class PysolToolbarTk(object):
 
     def __init__(self, top, menubar, dir,
                  size=0, relief='flat', compound='none'):

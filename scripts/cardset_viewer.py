@@ -29,7 +29,7 @@ cardset_type = {
 
 all_imgs = False
 
-class Cardset:
+class Cardset(object):
     def __init__(self, dir, name, type, ext, x, y):
         self.dir, self.name, self.type, self.ext, self.x, self.y = dir, name, type, ext, x, y
 

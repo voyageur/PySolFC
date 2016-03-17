@@ -100,7 +100,7 @@ if Image:
 # * DataLoader
 # ************************************************************************
 
-class DataLoader:
+class DataLoader(object):
     def __init__(self, argv0, filenames, path=[]):
         self.dir = None
         if isinstance(filenames, str):

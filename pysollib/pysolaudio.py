@@ -41,7 +41,7 @@ except ImportError:
 # * basic audio client
 # ************************************************************************
 
-class AbstractAudioClient:
+class AbstractAudioClient(object):
 
     EXTENSIONS = r"\.((wav)|(it)|(mod)|(mp3)|(pym)|(s3m)|(xm))$"
 
@@ -292,7 +292,7 @@ class Win32AudioClient(AbstractAudioClient):
 # * OSS audio
 # ************************************************************************
 
-class OSSAudioServer:
+class OSSAudioServer(object):
 
     def __init__(self, pipe):
         self.pipe = pipe

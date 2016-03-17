@@ -104,7 +104,7 @@ def base_init_root_window(root, app):
         pass
 
 
-class BaseTkSettings:
+class BaseTkSettings(object):
     canvas_padding = (0, 0)
     horizontal_toolbar_padding = (0, 0)
     vertical_toolbar_padding = (0, 1)

@@ -39,7 +39,7 @@ from pysollib.pysoltk import loadImage, copyImage, createImage, shadowImage, cre
 # ************************************************************************
 
 
-class ImagesCardback:
+class ImagesCardback(object):
     def __init__(self, index, name, image, menu_image=None):
         if menu_image is None: menu_image = image
         self.index = index
@@ -48,7 +48,7 @@ class ImagesCardback:
         self.menu_image = menu_image
 
 
-class Images:
+class Images(object):
     def __init__(self, dataloader, cs, r=1):
         self.d = dataloader
         self.cs = cs

@@ -53,7 +53,7 @@ def ltk2gtk(s):
 # * - menu actions
 # ************************************************************************
 
-class PysolMenubarTk:
+class PysolMenubarTk(object):
     def __init__(self, app, top, progress=None):
         self.progress = progress
         self._cb_max = gdk.screen_height()/24

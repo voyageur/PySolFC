@@ -330,6 +330,6 @@ class MfxSimpleEntry(_MyDialog):
 
 
 
-class SelectDialogTreeData:
+class SelectDialogTreeData(object):
     pass
 

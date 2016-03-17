@@ -35,7 +35,7 @@ from gtk import gdk
 # *
 # ************************************************************************
 
-class ColorsDialog:
+class ColorsDialog(object):
 
     def __init__(self, parent, title, app, **kw):
 

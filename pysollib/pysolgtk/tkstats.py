@@ -568,7 +568,7 @@ class Status_StatsDialog(MfxMessageDialog): #MfxDialog
             )
 
 
-class ProgressionDialog:
+class ProgressionDialog(object):
     # FIXME
     pass
 

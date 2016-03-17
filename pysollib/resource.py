@@ -53,7 +53,7 @@ class Resource(Struct):
         #return latin1_to_ascii(self.name).lower()
 
 
-class ResourceManager:
+class ResourceManager(object):
     def __init__(self):
         self._selected_key = -1
         self._objects = []
@@ -158,7 +158,7 @@ class ResourceManager:
 # ************************************************************************
 
 # CardsetInfo constants
-class CSI:
+class CSI(object):
     # cardset size
     SIZE_TINY   = 1
     SIZE_SMALL  = 2

@@ -222,7 +222,7 @@ class tkHTMLParser(HTMLParser):
 # *
 # ************************************************************************
 
-class HTMLViewer:
+class HTMLViewer(object):
     symbols_fn = {}  # filenames, loaded in Application.loadImages3
     symbols_img = {}
 

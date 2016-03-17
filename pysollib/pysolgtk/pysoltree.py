@@ -35,7 +35,7 @@ import gtk, gobject
 # *
 # ************************************************************************
 
-class PysolTreeView:
+class PysolTreeView(object):
 
     _expanded_rows = []
     _selected_row = None

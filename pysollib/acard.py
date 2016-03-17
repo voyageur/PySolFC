@@ -32,7 +32,7 @@ from pysollib.mfxutil import SubclassResponsibility
 # *
 # ************************************************************************
 
-class AbstractCard:
+class AbstractCard(object):
     # A playing card.
     #
     # A card doesn't record to which stack it belongs; only the stack

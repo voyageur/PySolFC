@@ -34,7 +34,7 @@ import gtk.glade
 # *
 # ************************************************************************
 
-class TimeoutsDialog:
+class TimeoutsDialog(object):
 
     def __init__(self, parent, title, app, **kw):
 

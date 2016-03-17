@@ -42,7 +42,7 @@ from pysollib.util import KING
 # * The whole hint system is exclusively used by Game.getHints().
 # ************************************************************************
 
-class HintInterface:
+class HintInterface(object):
     # level == 0: show hint (key `H')
     # level == 1: show hint and display score value (key `Ctrl-H')
     # level == 2: demo
@@ -1117,7 +1117,7 @@ class BlackHoleSolver_Hint(Base_Solver_Hint):
         if os.name == 'posix':
             os.wait()
 
-class FreeCellSolverWrapper:
+class FreeCellSolverWrapper(object):
 
     def __init__(self, **game_type):
         self.game_type = game_type
@@ -1126,7 +1126,7 @@ class FreeCellSolverWrapper:
         hint = FreeCellSolver_Hint(game, dialog, **self.game_type)
         return hint
 
-class BlackHoleSolverWrapper:
+class BlackHoleSolverWrapper(object):
 
     def __init__(self, **game_type):
         self.game_type = game_type
