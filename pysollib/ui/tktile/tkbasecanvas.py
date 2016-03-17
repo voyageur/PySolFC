@@ -1,4 +1,3 @@
-# TODO: license check (PSF code here) or use Tkinter.Canvas directly
 # This module exports classes for the various canvas item types
 
 # NOTE: This module was an experiment and is now obsolete.
@@ -8,8 +7,6 @@ try:
     from tkinter import _cnfmerge, _flatten
 except ImportError:
     from Tkinter import _cnfmerge, _flatten
-
-
 
 class CanvasItem(object):
     def __init__(self, canvas, itemType, *args, **kw):
@@ -87,14 +84,6 @@ class CanvasItem(object):
     def type(self):
         return self.canvas.type(self.id)
 
-class Arc(CanvasItem):
-    def __init__(self, canvas, *args, **kw):
-        CanvasItem.__init__(self, canvas, 'arc', *args, **kw)
-
-class Bitmap(CanvasItem):
-    def __init__(self, canvas, *args, **kw):
-        CanvasItem.__init__(self, canvas, 'bitmap', *args, **kw)
-
 class ImageItem(CanvasItem):
     def __init__(self, canvas, *args, **kw):
         CanvasItem.__init__(self, canvas, 'image', *args, **kw)
@@ -103,26 +92,13 @@ class Line(CanvasItem):
     def __init__(self, canvas, *args, **kw):
         CanvasItem.__init__(self, canvas, 'line', *args, **kw)
 
-class Oval(CanvasItem):
-    def __init__(self, canvas, *args, **kw):
-        CanvasItem.__init__(self, canvas, 'oval', *args, **kw)
-
-class Polygon(CanvasItem):
-    def __init__(self, canvas, *args, **kw):
-        CanvasItem.__init__(self, canvas, 'polygon', *args, **kw)
-
 class Rectangle(CanvasItem):
     def __init__(self, canvas, *args, **kw):
         CanvasItem.__init__(self, canvas, 'rectangle', *args, **kw)
 
-# XXX "Text" is taken by the Text widget...
 class CanvasText(CanvasItem):
     def __init__(self, canvas, *args, **kw):
         CanvasItem.__init__(self, canvas, 'text', *args, **kw)
-
-class Window(CanvasItem):
-    def __init__(self, canvas, *args, **kw):
-        CanvasItem.__init__(self, canvas, 'window', *args, **kw)
 
 class Group(object):
     def __init__(self, canvas, tag=None):
