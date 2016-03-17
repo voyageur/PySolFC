@@ -214,7 +214,7 @@ class MfxTreeNode(MfxTreeBaseNode):
 # ************************************************************************
 
 class MfxTreeInCanvas(MfxScrolledCanvas):
-    class Style:
+    class Style(object):
         def __init__(self):
             self.distx = 16
             self.disty = 18

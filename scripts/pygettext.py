@@ -559,7 +559,7 @@ def main():
         usage(1, msg)
 
     # for holding option values
-    class Options:
+    class Options(object):
         # constants
         GNU = 1
         SOLARIS = 2

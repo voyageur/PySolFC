@@ -103,7 +103,7 @@ class AbstractHint(HintInterface):
     #
 
     # Create a shallow copy of a stack.
-    class AClonedStack:
+    class AClonedStack(object):
         def __init__(self, stack, stackcards):
             # copy class identity
             self.__class__ = stack.__class__

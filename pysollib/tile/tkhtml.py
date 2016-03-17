@@ -101,7 +101,7 @@ class tkHTMLWriter(formatter.NullWriter):
         self.indent = ""
 
     def createCallback(self, href):
-        class Functor:
+        class Functor(object):
             def __init__(self, viewer, arg):
                 self.viewer = viewer
                 self.arg = arg
