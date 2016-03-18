@@ -30,7 +30,7 @@ import traceback
 from pysollib.mfxutil import destruct, Struct
 from pysollib.mfxutil import pickle, unpickle, UnpicklingError
 from pysollib.mfxutil import getusername, getprefdir
-from pysollib.mfxutil import latin1_to_ascii, print_err
+from pysollib.mfxutil import print_err
 from pysollib.mfxutil import USE_PIL
 from pysollib.util import CARDSET, IMAGE_EXTENSIONS
 from pysollib.settings import PACKAGE, VERSION_TUPLE, WIN_SYSTEM
@@ -1206,7 +1206,6 @@ Please select a %s type %s.
             return gi.rules_filename
         n = gi.en_name                  # english name
         ##n = re.sub(r"[\[\(].*$", "", n)
-        n = latin1_to_ascii(n)
         n = re.sub(r"[^\w]", "", n)
         n = n.lower() + ".html"
         f = os.path.join(self.dataloader.dir, "html", "rules", n)
@@ -1224,7 +1223,6 @@ Please select a %s type %s.
 ##         m = re.search(r"^(.*)([\[\(](\w+).*[\]\)])\s*$", n)
 ##         if m:
 ##             n = m.group(1) + "_" + m.group(2).lower()
-        n = latin1_to_ascii(n)
         n = n.lower()
         n = re.sub(r"[\s]", "_", n)
         n = re.sub(r"[^\w]", "", n)

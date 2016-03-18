@@ -1,14 +1,10 @@
 #!/usr/bin/env python
+from __future__ import print_function
 
 #outdir = '../html'
 pysollib_dir = '../'
 
 import sys, os, re
-from glob import glob
-
-import builtins
-builtins._ = lambda x: x
-builtins.n_ = lambda x: x
 
 try: os.mkdir('html')
 except: pass
@@ -29,7 +25,6 @@ import pysollib.games.mahjongg
 
 from pysollib.gamedb import GAME_DB
 from pysollib.gamedb import GI
-from pysollib.mfxutil import latin1_to_ascii
 
 
 files = [
@@ -121,7 +116,6 @@ wikipedia_header = '''<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 def getGameRulesFilename(n):
     if n.startswith('Mahjongg'): return 'mahjongg.html'
     ##n = re.sub(r"[\[\(].*$", "", n)
-    n = latin1_to_ascii(n)
     n = re.sub(r"[^\w]", "", n)
     n = n.lower() + ".html"
     return n
@@ -177,7 +171,7 @@ def gen_rules_html():
             rules_dir = 'wikipedia'
         else:
             print('missing rules for %s (file: %s)' \
-                  % (gi.name.encode('utf-8'), rules_fn))
+                  % (gi.name, rules_fn))
             continue
 
         ##print '>>>', rules_fn
@@ -198,7 +192,7 @@ def gen_rules_html():
         files_list.append(rules_fn)
         #rules_list.append((rules_fn, gi.name))
         print('<li><a href="rules/%s">%s</a>' \
-              % (rules_fn, gi.name.encode('utf-8')), file=out_rules)
+              % (rules_fn, gi.name), file=out_rules)
         for n in gi.altnames:
             altnames.append((n, rules_fn))
 
@@ -212,7 +206,7 @@ def gen_rules_html():
     altnames.sort()
     for name, fn in altnames:
         print('<li> <a href="rules/%s">%s</a>' \
-              % (fn, name.encode('utf-8')), file=out_rules_alt)
+              % (fn, name), file=out_rules_alt)
     print('</ul>\n' + \
           main_footer % '<a href="index.html">Back to the index</a>', file=out_rules_alt)
 
@@ -220,9 +214,9 @@ def gen_rules_html():
     for dir, filename, title, footer in rules_list:
         outfile = open(os.path.join('html', 'rules', filename), 'w')
         if dir == 'rules':
-            print((rules_header % title).encode('utf-8'), file=outfile)
+            print((rules_header % title), file=outfile)
         else: # d == 'wikipedia'
-            print((wikipedia_header % title).encode('utf-8'), file=outfile)
+            print((wikipedia_header % title), file=outfile)
         print(open(os.path.join(dir, filename)).read(), file=outfile)
         print(rules_footer % footer, file=outfile)
 

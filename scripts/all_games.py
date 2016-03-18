@@ -3,12 +3,6 @@
 #
 
 import sys, os, re, time
-from pprint import pprint
-
-os.environ['LANG'] = 'C'
-import builtins
-builtins.__dict__['_'] = lambda x: x
-builtins.__dict__['n_'] = lambda x: x
 
 pysollib_path = os.path.join(sys.path[0], '..')
 sys.path[0] = os.path.normpath(pysollib_path)
@@ -26,13 +20,11 @@ import pysollib.games.mahjongg
 
 from pysollib.gamedb import GAME_DB
 from pysollib.gamedb import GI
-from pysollib.mfxutil import latin1_to_ascii
 from pysollib.resource import CSI
 
 def getGameRulesFilename(n):
     if n.startswith('Mahjongg'): return 'mahjongg.html'
     ##n = re.sub(r"[\[\(].*$", "", n)
-    n = latin1_to_ascii(n)
     n = re.sub(r"[^\w]", "", n)
     n = n.lower() + ".html"
     return n
@@ -86,7 +78,9 @@ def by_category():
         else:
             games_by_cat[gt] = 1
     games_by_cat_list = [(i, j) for i, j in list(games_by_cat.items())]
-    games_by_cat_list.sort(lambda i, j: cmp(j[1], i[1]))
+    print(games_by_cat_list)
+    games_by_cat_list.sort(key=lambda i:i[1], reverse=True)
+    print(games_by_cat_list)
 ##     print '<table border="2"><tr><th>Name</th><th>Number</th></tr>'
 ##     for i in games_by_cat_list:
 ##         print '<tr><td>%s</td><td>%s</td></tr>' % i
@@ -111,7 +105,7 @@ def by_type():
         else:
             games_by_type[gt] = 1
     games_by_type_list = list(games_by_type.items())
-    games_by_type_list.sort(lambda i, j: cmp(i[0], j[0]))
+    games_by_type_list.sort(key=lambda i:i[0])
 ##     print '<table border="2"><tr><th>Name</th><th>Number</th></tr>'
 ##     for i in games_by_type_list:
 ##         print '<tr><td>%s</td><td>%s</td></tr>' % i

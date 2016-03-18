@@ -76,19 +76,6 @@ class SubclassResponsibility(Exception):
 # ************************************************************************
 
 
-def latin1_to_ascii(n):
-    #return n
-    n = n.encode('iso8859-1', 'replace')
-    ## FIXME: rewrite this for better speed
-    n = (str(n).replace("\xc4", "Ae")
-         .replace("\xd6", "Oe")
-         .replace("\xdc", "Ue")
-         .replace("\xe4", "ae")
-         .replace("\xf6", "oe")
-         .replace("\xfc", "ue"))
-    return n
-
-
 def format_time(t):
     ##print 'format_time:', t
     if t <= 0: return "0:00"

@@ -197,12 +197,12 @@ if __name__ == '__main__':
             ncards = len(layout)
 
             if ncards != 144:
-                print('''r(%d, "%s", ncards=%d, layout="%s")
-''' % (gameid, gamename, ncards, s))
+                print(('''r(%d, "%s", ncards=%d, layout="%s")
+''' % (gameid, gamename, ncards, s)))
 
             else:
-                print('''r(%d, "%s", layout="%s")
-''' % (gameid, gamename, s))
+                print(('''r(%d, "%s", layout="%s")
+''' % (gameid, gamename, s)))
 
             gameid += 1
 

@@ -9,7 +9,7 @@ try:
     pass
     from tkinter import *
 except ImportError:
-    from Tkinter import *
+    from tkinter import *
 try:
     from PIL import Image, ImageTk
 except ImportError:

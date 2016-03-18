@@ -24,7 +24,7 @@ ddirs = [
     'themes',
     'tcl',
     ]
-for s in file('MANIFEST.in'):
+for s in open('MANIFEST.in'):
     if s.startswith('graft data/cardset-'):
         ddirs.append(s[11:].strip())
 
