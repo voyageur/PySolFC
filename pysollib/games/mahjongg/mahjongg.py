@@ -325,7 +325,7 @@ class AbstractMahjonggGame(Game):
         t = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
         for i in range(1, len(L), 3):
             n = t.find(L[i])
-            level, height = n / 7, n % 7 + 1
+            level, height = n // 7, n % 7 + 1
             tx = t.find(L[i+1])
             ty = t.find(L[i+2])
             assert n >= 0 and tx >= 0 and ty >= 0
@@ -403,10 +403,7 @@ class AbstractMahjonggGame(Game):
         self.check_dist = l.CW*l.CW + l.CH*l.CH     # see _getClosestStack()
 
         # sort tiles (for 3D)
-        tiles.sort(lambda a, b:
-                   cmp(a[0], b[0]) or
-                   cmp(-a[1]+a[2], -b[1]+b[2])
-                   )
+        tiles.sort(key=lambda a:a[0] or -a[1]+a[2])
 
         # create a row stack for each tile and compute the tilemap
         tilemap = {}
@@ -597,7 +594,7 @@ class AbstractMahjonggGame(Game):
             if len(free_stacks) < 2:
                 return None             # try another way
             #
-            i = factorial(len(free_stacks))/2/factorial(len(free_stacks)-2)
+            i = factorial(len(free_stacks))//2//factorial(len(free_stacks)-2)
             old_pairs = []
             for j in range(i):
                 nc = new_cards[:]
@@ -698,7 +695,7 @@ class AbstractMahjonggGame(Game):
                                if nc[r.id] is None and is_suitable(r, nc)]
 
             old_pairs = []
-            i = factorial(len(suitable_stacks))/2/factorial(len(suitable_stacks)-2)
+            i = factorial(len(suitable_stacks))//2//factorial(len(suitable_stacks)-2)
             for j in range(i):
                 if iters[0] > max_iters:
                     return None
