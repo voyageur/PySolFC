@@ -28,11 +28,9 @@ __all__ = ['PysolStatusbar',
 import os, sys
 try:
     import tkinter
+    from tkinter import ttk
 except ImportError:
     import Tkinter as tkinter
-try:
-    import tkinter.ttk
-except ImportError:
     import ttk
 
 from pysollib.mygettext import _, n_

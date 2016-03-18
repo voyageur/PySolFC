@@ -26,12 +26,10 @@
 try:
     import tkinter
     from tkinter.colorchooser import askcolor
+    from tkinter import ttk
 except ImportError:
     import Tkinter as tkinter
     from tkColorChooser import askcolor
-try:
-    import tkinter.ttk
-except ImportError:
     import ttk
 
 # PySol imports

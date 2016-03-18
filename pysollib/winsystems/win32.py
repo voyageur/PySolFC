@@ -26,7 +26,7 @@ import sys, os
 from pysollib.settings import TOOLKIT, USE_TILE
 if USE_TILE:
     try:
-        import tkinter.ttk
+        from tkinter import ttk
     except ImportError:
         import ttk
 

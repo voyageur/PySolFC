@@ -27,12 +27,10 @@ __all__ = ['FontsDialog']
 try:
     import tkinter
     from tkinter.font import families as tk_font_families
+    from tkinter import ttk
 except ImportError:
     import Tkinter as tkinter
     from tkFont import families as tk_font_families
-try:
-    import tkinter.ttk
-except ImportError:
     import ttk
 
 # PySol imports

@@ -31,7 +31,7 @@ from pysollib.settings import DEBUG
 from pysollib.mfxutil import print_err
 if USE_TILE:
     try:
-        import tkinter.ttk
+        from tkinter import ttk
     except ImportError:
         import ttk
 

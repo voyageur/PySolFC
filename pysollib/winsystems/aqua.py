@@ -30,7 +30,7 @@ except ImportError:
 from pysollib.settings import TOOLKIT, USE_TILE
 if USE_TILE:
     try:
-        import tkinter.ttk
+        from tkinter import ttk
     except ImportError:
         import ttk
 from pysollib.macosx.appSupport import hideTkConsole

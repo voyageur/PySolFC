@@ -25,7 +25,7 @@ __all__ = ['ColorsDialog']
 
 # imports
 try:
-    import tkinter.ttk
+    from tkinter import ttk
 except ImportError:
     import ttk
 

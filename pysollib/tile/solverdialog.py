@@ -32,11 +32,9 @@ __all__ = [
 # imports
 try:
     import tkinter
+    from tkinter import ttk
 except ImportError:
     import Tkinter as tkinter
-try:
-    import tkinter.ttk
-except ImportError:
     import ttk
 
 # PySol imports

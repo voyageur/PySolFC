@@ -25,7 +25,7 @@
 # imports
 import os
 try:
-    import tkinter.ttk
+    from tkinter import ttk
 except ImportError:
     import ttk
 try:

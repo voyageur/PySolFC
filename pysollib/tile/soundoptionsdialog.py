@@ -27,11 +27,9 @@ __all__ = ['SoundOptionsDialog']
 import os
 try:
     import tkinter
+    from tkinter import ttk
 except ImportError:
     import Tkinter as tkinter
-try:
-    import tkinter.ttk
-except ImportError:
     import ttk
 
 # PySol imports

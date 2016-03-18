@@ -28,14 +28,12 @@ import os, sys
 import formatter
 try:
     import tkinter
+    from tkinter import ttk
     from html.parser import HTMLParser
 except ImportError:
     import Tkinter as tkinter
-    from HTMLParser import HTMLParser
-try:
-    import tkinter.ttk
-except ImportError:
     import ttk
+    from HTMLParser import HTMLParser
 
 if __name__ == '__main__':
     d = os.path.abspath(os.path.join(sys.path[0], '..', '..'))

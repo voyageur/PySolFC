@@ -36,12 +36,10 @@ import sys, os, time, locale
 try:
     import tkinter
     from tkinter.font import Font
+    from tkinter import ttk
 except ImportError:
     import Tkinter as tkinter
     from tkFont import Font
-try:
-    import tkinter.ttk
-except ImportError:
     import ttk
 import traceback
 
