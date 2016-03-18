@@ -759,7 +759,7 @@ class PysolMenubarTkCommon(object):
         if len(games) == 0:
             menu.add_radiobutton(label='<none>', name=None, state='disabled')
         elif len(games) > self.cb_max*4:
-            games.sort(lambda a, b: cmp(a.name, b.name))
+            games.sort(key=lambda a:a.name)
             self._addSelectAllGameSubMenu(games, menu,
                                           command=self.mSelectGame,
                                           variable=self.tkopt.gameid)

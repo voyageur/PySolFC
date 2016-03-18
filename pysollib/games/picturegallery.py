@@ -531,7 +531,7 @@ class VirginiaReel(RoyalParade):
                 bottom_cards.append(c)
             if len(ranks) == 3:
                 break
-        bottom_cards.sort(lambda a, b: cmp(b.rank, a.rank))
+        bottom_cards.sort(key=lambda a:a.rank, reverse=True)
         return cards+bottom_cards
 
     def startGame(self):

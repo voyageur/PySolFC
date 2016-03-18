@@ -75,7 +75,7 @@ class SelectCardsetData(SelectDialogTreeData):
         #
         select_by_type = None
         items = list(CSI.TYPE.items())
-        items.sort(lambda a, b: cmp(a[1], b[1]))
+        items.sort(key=lambda a:a[1])
         nodes = []
         for key, name in items:
             if manager.registered_types.get(key):
@@ -85,7 +85,7 @@ class SelectCardsetData(SelectDialogTreeData):
         #
         select_by_style = None
         items = list(CSI.STYLE.items())
-        items.sort(lambda a, b: cmp(a[1], b[1]))
+        items.sort(key=lambda a:a[1])
         nodes = []
         for key, name in items:
             if manager.registered_styles.get(key):
@@ -96,7 +96,7 @@ class SelectCardsetData(SelectDialogTreeData):
         #
         select_by_nationality = None
         items = list(CSI.NATIONALITY.items())
-        items.sort(lambda a, b: cmp(a[1], b[1]))
+        items.sort(key=lambda a:a[1])
         nodes = []
         for key, name in items:
             if manager.registered_nationalities.get(key):
@@ -107,7 +107,7 @@ class SelectCardsetData(SelectDialogTreeData):
         #
         select_by_date = None
         items = list(CSI.DATE.items())
-        items.sort(lambda a, b: cmp(a[1], b[1]))
+        items.sort(key=lambda a:a[1])
         nodes = []
         for key, name in items:
             if manager.registered_dates.get(key):
@@ -139,7 +139,7 @@ class SelectCardsetByTypeData(SelectDialogTreeData):
         self.no_contents = [ SelectCardsetLeaf(None, None, _("(no cardsets)"), key=None), ]
         #
         items = list(CSI.TYPE.items())
-        items.sort(lambda a, b: cmp(a[1], b[1]))
+        items.sort(key=lambda a:a[1])
         nodes = []
         for key, name in items:
             if manager.registered_types.get(key):

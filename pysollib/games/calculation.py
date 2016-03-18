@@ -86,7 +86,7 @@ class Calculation(Game):
 4: 8 Q 3 7 J 2 6 T A 5 9 K'''))
         # calculate text_width
         lines = help.split('\n')
-        lines.sort(lambda a, b: cmp(len(a), len(b)))
+        lines.sort(key=lambda a:len(a))
         max_line = lines[-1]
         text_width = get_text_width(max_line,
                                     font=self.app.getFont("canvas_fixed"))

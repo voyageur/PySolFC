@@ -107,7 +107,7 @@ class GrandfathersClock(Game):
                 clocks.append(c)
                 cards.remove(c)
         # sort clocks reverse by rank
-        clocks.sort(lambda a, b: cmp(b.rank, a.rank))
+        clocks.sort(key=lambda a:a.rank, reverse=True)
         return clocks + cards
 
     def startGame(self):
@@ -327,8 +327,8 @@ class Hemispheres(Game):
                 elif c.deck == 0:
                     cards.remove(c)
                     rows_cards.append(c)
-        founds_cards.sort(lambda a, b: cmp((-a.rank, -a.suit), (-b.rank, -b.suit)))
-        rows_cards.sort(lambda a, b: cmp((a.rank, a.suit), (b.rank, b.suit)))
+        founds_cards.sort(key=lambda a:(-a.rank, -a.suit))
+        rows_cards.sort(key=lambda a:(a.rank, a.suit))
         return cards+rows_cards+founds_cards
 
 
@@ -455,7 +455,7 @@ class BigBen(Game):
             if not t:
                 break
         # sort clocks reverse by rank
-        clocks.sort(lambda a, b: cmp(b.rank, a.rank))
+        clocks.sort(key=lambda a:a.rank, reverse=True)
         return cards+clocks
 
     def startGame(self):

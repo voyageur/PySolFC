@@ -299,7 +299,7 @@ class Corners(Game):
                 top_cards.append(c)
                 if len(suits) == 4:
                     break
-        top_cards.sort(lambda a, b: cmp(b.suit, a.suit))
+        top_cards.sort(key=lambda a:a.suit, reverse=True)
         return cards+top_cards
 
 

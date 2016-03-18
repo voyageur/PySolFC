@@ -119,7 +119,7 @@ class SelectCardsetDialogWithPreview(MfxDialog):
         root_iter = store.append(None)
         store.set(root_iter, 0, root_label, 1, -1)
         items = list(cardset_types.items())
-        items.sort(lambda a, b: cmp(a[1], b[1]))
+        items.sort(key=lambda a:a[1])
         added = False
         for key, label in items:
             if key not in getattr(manager, registered):
