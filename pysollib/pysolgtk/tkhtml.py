@@ -169,6 +169,9 @@ class tkHTMLWriter(formatter.NullWriter):
 # ************************************************************************
 
 class tkHTMLParser(HTMLParser):
+    def __init__(self, fmt):
+        HTMLParser.__init__(self)
+        self.formatter = fmt
     def anchor_bgn(self, href, name, type):
         self.formatter.flush_softspace()
         HTMLParser.anchor_bgn(self, href, name, type)
