@@ -1016,9 +1016,9 @@ class ProgressionFrame(ttk.Frame):
 
         graph_width = self.canvas_width-self.left_margin-self.right_margin
         graph_height = self.canvas_height-self.top_margin-self.bottom_margin
-        dx = (graph_width-2*self.graph_dx)/(len(result)-1)
+        dx = (graph_width-2*self.graph_dx)//(len(result)-1)
         graph_dx = (graph_width-(len(result)-1)*dx)/2
-        dy = (graph_height-self.graph_dy)/5
+        dy = (graph_height-self.graph_dy)//5
         x0, y0 = self.left_margin, self.canvas_height-self.bottom_margin
         x1, y1 = self.canvas_width-self.right_margin, self.top_margin
         td = self.text_height/2
@@ -1049,7 +1049,7 @@ class ProgressionFrame(ttk.Frame):
 
         # horizontal scale
         max_games = max([i[1] for i in result])
-        games_delta = max_games/5+1
+        games_delta = max_games//5+1
         percent = 0
         games = 0
         for y in range(y0, y1, -dy):
