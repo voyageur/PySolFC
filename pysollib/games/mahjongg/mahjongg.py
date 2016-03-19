@@ -403,7 +403,8 @@ class AbstractMahjonggGame(Game):
         self.check_dist = l.CW*l.CW + l.CH*l.CH     # see _getClosestStack()
 
         # sort tiles (for 3D)
-        tiles.sort(key=lambda a:a[0] or -a[1]+a[2])
+        tiles.sort(key=lambda a:a[1]+a[2])
+        tiles.sort(key=lambda a:a[0])
 
         # create a row stack for each tile and compute the tilemap
         tilemap = {}
