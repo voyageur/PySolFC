@@ -351,7 +351,7 @@ class Game(object):
 
     def cyclical_deal(game, num_cards, num_cols, flipped=False):
         for i in range(num_cards):
-            game.add(i%num_cols, game.next().flip(flipped=flipped))
+            game.add(i%num_cols, next(game).flip(flipped=flipped))
         return i
 
     def add_all_to_talon(game):
@@ -435,7 +435,7 @@ class Game(object):
 
         for r in range(1,num_cols):
             for s in range(num_cols-r):
-                game.add(s, game.next().flip())
+                game.add(s, next(game).flip())
 
         game.cyclical_deal(num_cols, num_cols)
 
@@ -547,7 +547,7 @@ class Game(object):
 
         for i in range(1, num_cols):
             for j in range(i, num_cols):
-                game.add(j, game.next().flip())
+                game.add(j, next(game).flip())
 
         for i in range(4):
             for j in range(1,num_cols):

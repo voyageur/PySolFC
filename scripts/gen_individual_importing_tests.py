@@ -154,7 +154,6 @@ for module_name in [
 'pysollib.tile.tktree',
 'pysollib.tile.tkwidget',
 'pysollib.tile.toolbar',
-'pysollib.tile.ttk',
 'pysollib.tile.wizarddialog',
 'pysollib.tk.colorsdialog',
 'pysollib.tk.edittextdialog',
