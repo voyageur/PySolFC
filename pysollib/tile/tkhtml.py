@@ -27,19 +27,20 @@ __all__ = ['HTMLViewer']
 import os, sys
 import formatter
 try:
+    import Tkinter as tkinter
+    import ttk
+    from htmllib import HTMLParser
+except ImportError:
+    # TODO Python3, should wrap around webbrowser
     import tkinter
     from tkinter import ttk
     from html.parser import HTMLParser
-except ImportError:
-    import Tkinter as tkinter
-    import ttk
-    from HTMLParser import HTMLParser
 
 if __name__ == '__main__':
     d = os.path.abspath(os.path.join(sys.path[0], '..', '..'))
     sys.path.append(d)
     import gettext
-    gettext.install('pysol', d, str=True)
+    gettext.install('pysol', d, True)
 
 # PySol imports
 from pysollib.mygettext import _, n_
@@ -202,9 +203,6 @@ class tkHTMLWriter(formatter.NullWriter):
 # ************************************************************************
 
 class tkHTMLParser(HTMLParser):
-    def __init__(self, fmt):
-        HTMLParser.__init__(self)
-        self.formatter = fmt
     def anchor_bgn(self, href, name, type):
         self.formatter.flush_softspace()
         HTMLParser.anchor_bgn(self, href, name, type)
