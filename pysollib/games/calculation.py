@@ -390,7 +390,7 @@ class SeniorWrangler(Game):
                 ranks.append(c.rank)
                 cards.remove(c)
                 top.append(c)
-        top.sort(lambda a, b: cmp(b.rank, a.rank))
+        top.sort(key=lambda a: a.rank, reverse=True)
         return cards+top
 
 
@@ -455,7 +455,7 @@ class SPatience(Game):
                 ranks.append(c.rank)
                 cards.remove(c)
                 top.append(c)
-        top.sort(lambda a, b: cmp(b.rank, a.rank))
+        top.sort(key=lambda a:a.rank, reverse=True)
         return cards+top[7:]+top[:7]
 
     def startGame(self):

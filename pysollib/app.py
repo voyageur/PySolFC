@@ -63,6 +63,9 @@ from pysollib.actions import PysolMenubar
 from pysollib.actions import PysolToolbar
 from pysollib.help import help_about, destroy_help_html
 
+# compatibility
+cmp = lambda x, y: (x > y) - (x < y)
+
 # ************************************************************************
 # * Statistics
 # ************************************************************************

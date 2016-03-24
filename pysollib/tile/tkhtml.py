@@ -348,7 +348,7 @@ class HTMLViewer(object):
             if relpath and baseurl and not os.path.isabs(url):
                 h1, t1 = os.path.split(url)
                 h2, t2 = os.path.split(baseurl)
-                if cmp(h1, h2) != 0:
+                if h1 != h2:
                     url = os.path.join(h2, h1, t1)
                 url = os.path.normpath(url)
         return url
@@ -378,7 +378,7 @@ class HTMLViewer(object):
             self.display_2(url, add, relpath, xview, yview)
 
     def display_3(self, url, add, relpath, xview, yview):
-        self.errorDialog(TITLE + _('''Python3 limitation:
+        self.errorDialog(TITLE + _(''' Python3 limitation:
 The HTML browser is not supported yet.
 
 Please use your standard web browser
@@ -477,7 +477,7 @@ to open the following URL:
             self.visited_urls.append(url)
         if self.history.index > 0:
             u, xv, yv = self.history.list[self.history.index-1]
-            if cmp(u, url) == 0:
+            if u == url:
                 self.updateHistoryXYView()
                 return
         del self.history.list[self.history.index : ]
@@ -506,7 +506,7 @@ to open the following URL:
             self.display(url, add=0, relpath=0, xview=xview, yview=yview)
 
     def goHome(self, *event):
-        if self.home and cmp(self.home, self.url) != 0:
+        if self.home and self.home != self.url:
             self.updateHistoryXYView()
             self.display(self.home, relpath=0)
 

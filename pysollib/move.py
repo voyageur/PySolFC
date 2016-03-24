@@ -24,6 +24,8 @@
 
 # imports
 
+# compatibility
+cmp = lambda x, y: (x > y) - (x < y)
 
 # ************************************************************************
 # * moves (undo / redo)
