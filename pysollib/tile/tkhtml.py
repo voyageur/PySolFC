@@ -372,6 +372,21 @@ class HTMLViewer(object):
         return open(url, "rb"), url
 
     def display(self, url, add=1, relpath=1, xview=0, yview=0):
+        if sys.version_info > (3,):
+            self.display_3(url, add, relpath, xview, yview)
+        else:
+            self.display_2(url, add, relpath, xview, yview)
+
+    def display_3(self, url, add, relpath, xview, yview):
+        self.errorDialog(TITLE + _('''Python3 limitation:
+The HTML browser is not supported yet.
+
+Please use your standard web browser
+to open the following URL:
+%s
+''') % url)
+
+    def display_2(self, url, add, relpath, xview, yview):
         # for some reason we have to stop the PySol demo
         # (is this a multithread problem with Tkinter ?)
         if self.app and self.app.game:
